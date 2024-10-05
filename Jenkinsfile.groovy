@@ -28,7 +28,7 @@ pipeline {
                         println('Hello, World')
                         String scriptlocation = 'resources\\cleanupFiles.ps1'
                         powerShell('pwd')
-                        powerShell("${scriptlocation} localhost \$true")
+                        powerShell("${scriptlocation} ${parameters.hostname} \$true")
 
                     }
                 }
