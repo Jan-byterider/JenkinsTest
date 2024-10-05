@@ -1,6 +1,16 @@
 pipeline {
     agent any
     stages {
+        stage("Clone Git Repository") {
+            steps {
+                git(
+                    url: "https://github.com/Jan-byterider/JenkinsTest.git",
+                    branch: "main",
+                    changelog: true,
+                    poll: true
+                )
+            }
+        }        
         stage('Hello World') {
             steps {
                 script {
