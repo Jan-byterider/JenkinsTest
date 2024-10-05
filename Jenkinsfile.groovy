@@ -3,7 +3,7 @@ def powerShell(psCmd) {
     bat "powershell.exe -NonInteractive -ExecutionPolicy Bypass -Command \"\$ErrorActionPreference='Stop';[Console]::OutputEncoding=[System.Text.Encoding]::UTF8;$psCmd;EXIT \$global:LastExitCode\""
 }
 
-params { 
+parameters { 
     string(name: 'hostname', defaultValue: '', description: 'target hostname')
     bool(name: 'dryRun', defaultValue: true , description: 'actions are not executed when false')
     }
