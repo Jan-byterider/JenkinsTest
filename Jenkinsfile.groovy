@@ -1,4 +1,4 @@
-def PowerShell(psCmd) {
+def powerShell(psCmd) {
     psCmd=psCmd.replaceAll("%", "%%")
     bat "powershell.exe -NonInteractive -ExecutionPolicy Bypass -Command \"\$ErrorActionPreference='Stop';[Console]::OutputEncoding=[System.Text.Encoding]::UTF8;$psCmd;EXIT \$global:LastExitCode\""
 }
@@ -22,8 +22,8 @@ pipeline {
                     script {
                         println('Hello, World')
                         String scriptlocation = 'resources\\test.ps1'
-                        PowerShell('pwd')
-                        PowerShell("${scriptlocation}")
+                        powerShell('pwd')
+                        powerShell("${scriptlocation}")
 
                     }
                 }
