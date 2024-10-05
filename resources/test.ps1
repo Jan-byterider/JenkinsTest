@@ -1,6 +1,8 @@
 write-host "Powershell script started"
 [boolean]$createFiles = $false
 [boolean]$dryRun = $true
+$today = Get-Date
+$tresholdDate = $today.AddDays(-10)
 try{
     $path = "C:\Users\jan\downloads"
     
@@ -31,13 +33,25 @@ try{
     write-host "--------------------------------------------------------"
     if($files){
         write-host "files to delete: $files"
-        if($dryRun){$files | Remove-Item -Force -Confirm:$false}
+        if($dryRun){
+            foreach ($file in $files){
+                if ($file.LastWriteTime -le $tresholdDate) {
+                    Remove-Item $file -Force -Confirm:$false
+                }
+            }
+        }
     }else{
         write-host 'no files found - no delete action on files'
     }
     if($dirs){
         write-host "dirs to delete: $dirs"
-        if($dryRun){$dirs | Remove-Item -Force -Confirm:$false -Recurse}
+        if($dryRun){
+            foreach($dir in $dirs){
+                if((Get-ChildItem $dir).count -eq 0){
+                    Remove-Item $dir -Force
+                }
+            }
+        }
     }else{
         write-host 'no dirs found - no delete action on folders'
     }
