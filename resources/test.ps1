@@ -14,6 +14,7 @@ try{
             for($g=0;$g -lt 7;$g++){
                 New-Item -name "file$g.txt" -ItemType File -Value "Dit is file$g" -Force
             }
+            set-location $newPath
         }
     }
     $files = Get-ChildItem C:\TEMP -File -Recurse
