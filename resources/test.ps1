@@ -8,7 +8,7 @@ try{
     }else{
         write-host 'no files found - no delete action on files'
     }
-    id($dirs){
+    if($dirs){
         $dirs | Remove-Item -Force
     }else{
         write-host 'no dirs found - no delete action on folders'
