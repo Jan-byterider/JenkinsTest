@@ -21,7 +21,7 @@ try{
     $dirs = Get-ChildItem C:\TEMP -Directory 
     write-host "--------------------------------------------------------"
     write-host "cleaning c:temp containing $($files.count) files"
-    write-host "cleaning c:\temp containing: " + (Get-ChildItem C:\TEMP -Directory -recurse).count + "folders to delete"
+    write-host "cleaning c:\temp containing: "  (Get-ChildItem C:\TEMP -Directory -recurse).count  " folders to delete"
     write-host "--------------------------------------------------------"
     if($files){
         write-host "files to delete: $files"
