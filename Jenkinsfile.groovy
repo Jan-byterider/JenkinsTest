@@ -16,7 +16,7 @@ pipeline {
                 script {
                     println('Hello, World')
                     String scriptlocation = 'resources\\test.ps1'
-                    sh "pwd"
+                    sh 'pwsh pwd'
 
                 }
             }
