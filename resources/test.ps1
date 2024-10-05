@@ -5,7 +5,7 @@ try{
     {
         Set-Location $path
         mkdir "dir$i"
-        $newPath = joint-path -path $path -childPAth "dir$i"
+        $newPath = join-path -path $path -childPAth "dir$i"
         Set-Location $newPath
         for($i=0;$i-lt 5; $i++){
             mkdir "dir$i"
