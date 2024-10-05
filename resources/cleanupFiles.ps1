@@ -1,4 +1,13 @@
-write-host "Powershell script started"
+[CmdletBinding()]
+param (
+    [Parameter(Mandatory=$true)]
+    [string]
+    $hostname,
+    [Parameter(Mandatory=$true)]
+    [boolean]
+    $dryRun
+)
+write-host "Powershell script started - Target $hostname - DryRun $dryRun"
 [boolean]$createFiles = $false
 [boolean]$dryRun = $true
 $today = Get-Date

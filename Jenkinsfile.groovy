@@ -3,6 +3,11 @@ def powerShell(psCmd) {
     bat "powershell.exe -NonInteractive -ExecutionPolicy Bypass -Command \"\$ErrorActionPreference='Stop';[Console]::OutputEncoding=[System.Text.Encoding]::UTF8;$psCmd;EXIT \$global:LastExitCode\""
 }
 
+parameters { 
+    string(name: 'hostname', defaultValue: '', description: 'target hostname')
+    bool(name: 'dryRun', defaultValue: true, description: 'actions are not executed when false')
+    }
+
 pipeline {
     agent any
     stages {
@@ -21,9 +26,9 @@ pipeline {
                 steps {
                     script {
                         println('Hello, World')
-                        String scriptlocation = 'resources\\test.ps1'
+                        String scriptlocation = 'resources\\cleanupFiles.ps1'
                         powerShell('pwd')
-                        powerShell("${scriptlocation}")
+                        powerShell("${scriptlocation} ${params.hostname} ${params.dryRun}")
 
                     }
                 }
