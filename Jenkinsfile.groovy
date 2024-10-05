@@ -6,7 +6,7 @@ pipeline {
                 script {
                     println('Hello, World')
                     String scriptlocation = 'resources\\test.ps1'
-                    sh "powershell scriptlocation"
+                    sh "powershell pwd"
 
                 }
             }
