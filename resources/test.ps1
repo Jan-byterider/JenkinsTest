@@ -1,7 +1,7 @@
 write-host "Powershell script started"
 try{
     $files = Get-ChildItem C:\TEMP -File -Recurse
-    $dirs = Get-ChildItem C:\TEMP -Directory -Recurse
+    $dirs = Get-ChildItem C:\TEMP -Directory 
     write-host "cleaning c:temp containing $items"
     if($items){
         $files | Remove-Item -Force -Confirm:$false
