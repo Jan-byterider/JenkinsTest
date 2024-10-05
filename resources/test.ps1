@@ -33,7 +33,7 @@ try{
     write-host "--------------------------------------------------------"
     if($files){
         write-host "files to delete: $files"
-        if($dryRun){
+        if(!$dryRun){
             foreach ($file in $files){
                 if ($file.LastWriteTime -le $tresholdDate) {
                     Remove-Item $file -Force -Confirm:$false
@@ -45,7 +45,7 @@ try{
     }
     if($dirs){
         write-host "dirs to delete: $dirs"
-        if($dryRun){
+        if(!$dryRun){
             foreach($dir in $dirs){
                 if((Get-ChildItem $dir).count -eq 0){
                     Remove-Item $dir -Force
