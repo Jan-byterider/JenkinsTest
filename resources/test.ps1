@@ -1,9 +1,17 @@
 write-host "Powershell script started"
 try{
-    $items = Get-ChildItem C:\TEMP -File -Recurse
+    $files = Get-ChildItem C:\TEMP -File -Recurse
+    $dirs = Get-ChildItem C:\TEMP -Directory -Recurse
     write-host "cleaning c:temp containing $items"
     if($items){
         $items | Remove-Item -Force
+    }else{
+        write-host 'no files found - no delete action on files'
+    }
+    id($dirs){
+        $dirs | Remove-Item -Force
+    }else{
+        write-host 'no dirs found - no delete action on folders'
     }
 }catch{
     write-host "Error cleaning c:\temp"
