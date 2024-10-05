@@ -1,17 +1,19 @@
 write-host "Powershell script started"
 try{
     $path = "C:\TEMP"
-    for($i=0;$i-lt 10; $i++)
+    for($i=0;$i -lt 10; $i++)
     {
         Set-Location $path
         mkdir "dir$i" -Force
         $newPath = join-path -path $path -childPAth "dir$i"
         Set-Location $newPath
-        for($i=0;$i-lt 5; $i++){
-            mkdir "dir$i"
+        for($j=0;$j -lt 5; $j++){
+            mkdir "dir$j" -Force
             $lastPath = Join-Path -Path $newPath -ChildPath $lastPath
             Set-Location $lastPath
-            New-Item -name "file$i.txt" -ItemType File -Value "Dit is file$i"
+            for($g=0;$g -lt 7;$g++){
+                New-Item -name "file$g.txt" -ItemType File -Value "Dit is file$g" -Force
+            }
         }
     }
     $files = Get-ChildItem C:\TEMP -File -Recurse
