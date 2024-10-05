@@ -1,8 +1,9 @@
 write-host "Powershell script started"
 try{
-    $path = C:\TEMP
+    $path = "C:\TEMP"
     for($i=0;$i-lt 10; $i++)
     {
+        Set-Location $path
         mkdir "dir$i"
         $newPath = joint-path -path $path -childPAth "dir$i"
         Set-Location $newPath
