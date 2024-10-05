@@ -1,9 +1,22 @@
 write-host "Powershell script started"
 try{
+    $path = C:\TEMP
+    for($i=0;$i-lt 10; $i++)
+    {
+        mkdir "dir$i"
+        $newPath = joint-path -path $path -childPAth "dir$i"
+        Set-Location $newPath
+        for($i=0;$i-lt 5; $i++){
+            mkdir "dir$i"
+            $lastPath = Join-Path -Path $newPath -ChildPath $lastPath
+            Set-Location $lastPath
+            New-Item -name "file$i.txt" -ItemType File -Value "Dit is file$i"
+        }
+    }
     $files = Get-ChildItem C:\TEMP -File -Recurse
     $dirs = Get-ChildItem C:\TEMP -Directory 
     write-host "cleaning c:temp containing $items"
-    if($items){
+    if($files){
         write-host "files to delete: $files"
         $files | Remove-Item -Force -Confirm:$false
     }else{
