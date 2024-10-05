@@ -9,7 +9,7 @@ try{
         write-host 'no files found - no delete action on files'
     }
     if($dirs){
-        $dirs | Remove-Item -Force -Confirm:$false
+        $dirs | Remove-Item -Force -Confirm:$false -Recurse
     }else{
         write-host 'no dirs found - no delete action on folders'
     }
