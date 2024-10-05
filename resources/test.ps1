@@ -9,7 +9,7 @@ try{
         Set-Location $newPath
         for($j=0;$j -lt 5; $j++){
             mkdir "dir$j" -Force
-            $lastPath = Join-Path -Path $newPath -ChildPath $lastPath
+            $lastPath = Join-Path -Path $newPath -ChildPath "dir$j"
             Set-Location $lastPath
             for($g=0;$g -lt 7;$g++){
                 New-Item -name "file$g.txt" -ItemType File -Value "Dit is file$g" -Force
