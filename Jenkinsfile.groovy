@@ -21,8 +21,8 @@ pipeline {
                 script {
                     println('Hello, World')
                     String scriptlocation = '..\\resources\\test.ps1'
-                    PowerShell 'pwd'
-                    PowerShell scriptlocation
+                    PowerShell('pwd')
+                    PowerShell(scriptlocation)
 
                 }
             }
