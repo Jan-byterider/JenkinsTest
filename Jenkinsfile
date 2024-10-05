@@ -1,4 +1,5 @@
-/* Requires the Docker Pipeline plugin */
+
+/* groovylint-disable-next-line CompileStatic */
 pipeline {
     agent { any }
     stages {
