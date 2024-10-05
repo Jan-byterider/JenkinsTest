@@ -1,3 +1,8 @@
+def PowerShell(psCmd) {
+    psCmd=psCmd.replaceAll("%", "%%")
+    bat "powershell.exe -NonInteractive -ExecutionPolicy Bypass -Command \"\$ErrorActionPreference='Stop';[Console]::OutputEncoding=[System.Text.Encoding]::UTF8;$psCmd;EXIT \$global:LastExitCode\""
+}
+
 pipeline {
     agent any
     stages {
@@ -15,8 +20,9 @@ pipeline {
             steps {
                 script {
                     println('Hello, World')
-                    String scriptlocation = 'resources\\test.ps1'
-                    sh 'pwsh scriptlocation'
+                    String scriptlocation = '..\\resources\\test.ps1'
+                    PowerShell 'pwd'
+                    PowerShell scriptlocation
 
                 }
             }
