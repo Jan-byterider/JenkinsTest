@@ -19,7 +19,7 @@ pipeline {
                             string(name: 'hostname', defaultValue: '', description: 'target hostname'),
                             boolean(name: 'dryRun', defaultValue: true , description: 'actions are not executed when false')
                         ])
-                })
+                ])
             }
         }
         stage("Clone Git Repository") {
