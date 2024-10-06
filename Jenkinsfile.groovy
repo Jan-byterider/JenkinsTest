@@ -39,12 +39,16 @@ pipeline {
             steps {
                 script {
                     println('Hello, World')
-                    String scriptlocation = 'resources\\cleanupFiles.ps1'
-                    powerShell('pwd')
-                    powerShell("${scriptlocation} ${params.hostname} ${dryRun}")
-
                 }
             }
+        }
+        stage('Delete downloaded files') {
+            steps {
+                script {
+                    String scriptlocation = 'resources\\cleanupFiles.ps1'
+                    powerShell('pwd')
+                    powerShell("${scriptlocation} ${params.hostname} ${dryRun} ${username} ${password}")    
+                }
         }
     }
 }

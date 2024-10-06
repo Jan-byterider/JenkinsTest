@@ -5,7 +5,10 @@ param (
     $pathToClean,
     [Parameter(Mandatory=$true)]
     [string]
-    $dryRun
+    $username,
+    [Parameter(Mandatory=$true)]
+    [string]
+    $password
 )
 write-host "Powershell script started - Target $hostname - DryRun $dryRun"
 [boolean]$createFiles = $false
@@ -13,6 +16,9 @@ write-host "Powershell script started - Target $hostname - DryRun $dryRun"
 
 if($dryRun -eq 'true'){[bool]$dryRun = $true}
 else{[bool]$dryRun = $false}
+
+write-host "username $username"
+write-host "password: $password"
 
 $today = Get-Date
 $tresholdDate = $today.AddDays(-10)
