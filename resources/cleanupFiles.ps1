@@ -2,7 +2,7 @@
 param (
     [Parameter(Mandatory=$true)]
     [string]
-    $hostname,
+    $pathToClean,
     [Parameter(Mandatory=$true)]
     [string]
     $dryRun
@@ -18,7 +18,8 @@ $today = Get-Date
 $tresholdDate = $today.AddDays(-10)
 try{
     # set path to downloads folder
-    $path = (New-Object -ComObject Shell.Application).Namespace('shell:Downloads').Self.Path
+    #$path = (New-Object -ComObject Shell.Application).Namespace('shell:Downloads').Self.Path
+    $path = $pathToClean
     
     if ($createFiles -eq $true) {
         for($i=0;$i -lt 10; $i++)
@@ -70,6 +71,6 @@ try{
         write-host 'no dirs found - no delete action on folders'
     }
 }catch{
-    write-host "Error cleaning c:\temp"
+    write-host "Error cleaning $path"
     write-host $error[0]
 }
