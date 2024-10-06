@@ -5,10 +5,13 @@ param (
     $pathToClean,
     [Parameter(Mandatory=$true)]
     [string]
+    $hostname,
+    [Parameter(Mandatory=$true)]
+    [string]
     $username,
     [Parameter(Mandatory=$true)]
     [string]
-    $password
+    $secret
 )
 write-host "Powershell script started - Target $hostname - DryRun $dryRun"
 [boolean]$createFiles = $false
