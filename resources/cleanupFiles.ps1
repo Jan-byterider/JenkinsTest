@@ -104,8 +104,10 @@ $scriptblock = {
             #write-host "dirs to delete: $dirs"
             if(!$dryRun){
                 foreach($dir in $dirs){
-                    if((Get-ChildItem $dir).count -eq 0){
-                        Remove-Item $dir -Force
+                    if (Test-Path $dir) {
+                        if((Get-ChildItem $dir -ErrorAction SilentlyContinue).count -eq 0){
+                            Remove-Item $dir -Force
+                        }
                     }
                 }
             }
@@ -113,13 +115,13 @@ $scriptblock = {
             write-host 'no dirs found - no delete action on folders'
         }
     }catch{
-        write-host "Error cleaning $path"
-        write-host $error[0]
+        write-host "Script Block Error cleaning $path"
+        write-host $error
     }
 }
 try{
     Invoke-Command -Session $session -ScriptBlock $scriptblock -ErrorAction Stop
 }catch{
-    write-host "Error cleaning $path"
+    write-host "Script block invocation error"
     write-host $error[0]
 }
