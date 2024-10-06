@@ -49,6 +49,7 @@ pipeline {
                     powerShell('pwd')
                     powerShell("${scriptlocation} ${params.hostname} ${dryRun} ${username} ${password}")    
                 }
+            }
         }
     }
 }
