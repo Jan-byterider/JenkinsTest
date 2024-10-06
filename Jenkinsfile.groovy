@@ -37,9 +37,10 @@ pipeline {
             steps {
                 script {
                     println('Hello, World')
+                
                     String scriptlocation = 'resources\\cleanupFiles.ps1'
                     powerShell('pwd')
-                    powerShell("${scriptlocation} ${params.hostname} ${params.dryRun}")
+                    powerShell("${scriptlocation} ${params.hostname} [System.Convert]::ToBoolean(${params.dryRun})")
 
                 }
             }
