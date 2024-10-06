@@ -75,7 +75,7 @@ $scriptblock = {
         $extensions = New-Object System.Collections.ArrayList 
         write-host "--------------------------------------------------------"
         write-host "cleaning $path containing $($files.count) files"
-        write-host "cleaning $path containing: "  (Get-ChildItem $using:pathToClean -Directory -recurse).count  " folders to delete"
+        write-host "cleaning $path containing: "  (Get-ChildItem $using:path -Directory -recurse).count  " folders to delete"
         write-host "--------------------------------------------------------"
         if($files){
             #write-host "files to delete: $files"
