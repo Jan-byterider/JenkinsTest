@@ -32,6 +32,7 @@ try{
     # set path to downloads folder
     #$path = (New-Object -ComObject Shell.Application).Namespace('shell:Downloads').Self.Path
     $path = $pathToClean
+    $path = (New-Object -ComObject Shell.Application).Namespace("shell:$path").Self.Path
     $user = whoami.exe
     write-host $user
     
