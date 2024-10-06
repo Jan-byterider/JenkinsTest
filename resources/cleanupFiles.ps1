@@ -85,15 +85,22 @@ $scriptblock = {
                         $extensions.add("$($files.Extension)")
                     }
                 }
-                $extensions = $extensions | Sort-Object -Unique
-                foreach($ext in $extensions){
-                    write-host "Ext: $ext"
-                
+            }else{
+                foreach ($file in $files){
+                    if ($file.LastWriteTime -le $tresholdDate) {
+                        $extensions.add("$($files.Extension)")
+                    }
                 }
             }
+           
+            $extensions = $extensions | Sort-Object -Unique
+            foreach($ext in $extensions){
+                write-host "Ext: $ext"
+           }
         }else{
             write-host 'no files found - no delete action on files'
         }
+        
         if($dirs){
             write-host "dirs to delete: $dirs"
             if(!$dryRun){
