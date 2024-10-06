@@ -3,10 +3,10 @@ def powerShell(psCmd) {
     bat "powershell.exe -NonInteractive -ExecutionPolicy Bypass -Command \"\$ErrorActionPreference='Stop';[Console]::OutputEncoding=[System.Text.Encoding]::UTF8;$psCmd;EXIT \$global:LastExitCode\""
 }
 
-parameters { 
+/*parameters { 
     string(name: 'hostname', defaultValue: '', description: 'target hostname')
     boolean(name: 'dryRun', defaultValue: true , description: 'actions are not executed when false')
-    }
+    }*/
 
 pipeline {
     agent any
@@ -17,7 +17,7 @@ pipeline {
                     properties([
                         parameters([
                             string(name: 'hostname', defaultValue: '', description: 'target hostname')
-                            bool(name: 'dryRun', defaultValue: true , description: 'actions are not executed when false')
+                            boolean(name: 'dryRun', defaultValue: true , description: 'actions are not executed when false')
                         ])bgcx
                 }
             }
