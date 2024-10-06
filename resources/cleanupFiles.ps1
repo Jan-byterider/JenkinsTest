@@ -4,12 +4,16 @@ param (
     [string]
     $hostname,
     [Parameter(Mandatory=$true)]
-    [System.ComponentModel.BooleanConverter]
+    [string]
     $dryRun
 )
 write-host "Powershell script started - Target $hostname - DryRun $dryRun"
 [boolean]$createFiles = $false
-[boolean]$dryRun = $true
+#[boolean]$dryRun = $true
+
+if($dryRun -eq 'true'){[bool]$dryRun = $true}
+else{[bool]$dryRun = $false}
+
 $today = Get-Date
 $tresholdDate = $today.AddDays(-10)
 try{
