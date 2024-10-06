@@ -37,8 +37,8 @@ $scriptblock = {
         # set path to downloads folder
         #$path = (New-Object -ComObject Shell.Application).Namespace('shell:Downloads').Self.Path
         try{
+            $path = $using:pathToClean
             $path = (New-Object -ComObject Shell.Application).Namespace("shell:$path").Self.Path
-            #$path = $using:pathToClean
             $check = Test-Path -path $path
         }catch{
             throw $error[0]
