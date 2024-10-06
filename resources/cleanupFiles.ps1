@@ -8,6 +8,9 @@ param (
     $hostname,
     [Parameter(Mandatory=$true)]
     [string]
+    $dryRun,
+    [Parameter(Mandatory=$true)]
+    [string]
     $username,
     [Parameter(Mandatory=$true)]
     [string]
@@ -55,7 +58,7 @@ try{
     $dirs = Get-ChildItem $path -Directory 
     write-host "--------------------------------------------------------"
     write-host "cleaning $path containing $($files.count) files"
-    write-host "cleaning $path containing: "  (Get-ChildItem C:\TEMP -Directory -recurse).count  " folders to delete"
+    write-host "cleaning $path containing: "  (Get-ChildItem $pathToClean -Directory -recurse).count  " folders to delete"
     write-host "--------------------------------------------------------"
     if($files){
         write-host "files to delete: $files"

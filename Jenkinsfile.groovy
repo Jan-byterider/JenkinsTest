@@ -16,6 +16,7 @@ pipeline {
                 script { 
                     properties([
                         parameters([
+                            string(name: 'pathToClean', defaultValue: '', description: 'target hostname'),
                             string(name: 'hostname', defaultValue: '', description: 'target hostname'),
                             string(name: 'username' ,defaultValue: '', description: 'username' ),
                             string(name: 'password', defaultValue: '', description: 'password'),
@@ -47,7 +48,7 @@ pipeline {
                 script {
                     String scriptlocation = 'resources\\cleanupFiles.ps1'
                     powerShell('pwd')
-                    powerShell("${scriptlocation} ${params.hostname} ${dryRun} ${username} ${password}")    
+                    powerShell("${scriptlocation} ${params.pathToClean} ${params.hostname} ${params.dryRun} ${params.username} ${params.password}")    
                 }
             }
         }
