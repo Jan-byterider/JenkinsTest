@@ -77,7 +77,7 @@ $scriptblock = {
         write-host "cleaning $path containing: "  (Get-ChildItem $using:pathToClean -Directory -recurse).count  " folders to delete"
         write-host "--------------------------------------------------------"
         if($files){
-            write-host "files to delete: $files"
+            #write-host "files to delete: $files"
             if(!$dryRun){
                 foreach ($file in $files){
                     if ($file.LastWriteTime -le $tresholdDate) {
@@ -100,7 +100,6 @@ $scriptblock = {
         }else{
             write-host 'no files found - no delete action on files'
         }
-        
         if($dirs){
             write-host "dirs to delete: $dirs"
             if(!$dryRun){
