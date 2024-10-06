@@ -11,17 +11,18 @@ def powerShell(psCmd) {
 pipeline {
     agent any
     stages {
-            stage('Setup parameters') {
+        stage('Setup parameters') {
             steps {
                 script { 
                     properties([
                         parameters([
                             string(name: 'hostname', defaultValue: '', description: 'target hostname'),
                             boolean(name: 'dryRun', defaultValue: true , description: 'actions are not executed when false')
-                        ]) 
-                }
+                        ])
+                })
             }
-            stage("Clone Git Repository") {
+        }
+        stage("Clone Git Repository") {
                 steps {
                     git(
                         url: "https://github.com/Jan-byterider/JenkinsTest.git",
