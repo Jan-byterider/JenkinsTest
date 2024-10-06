@@ -82,12 +82,13 @@ $scriptblock = {
                 foreach ($file in $files){
                     if ($file.LastWriteTime -le $tresholdDate) {
                         Remove-Item $file -Force -Confirm:$false
-                        $extensions.add("$($files.Extension)")
+                        $extensions.add($file.Extension)
                     }
                 }
             }else{
                 foreach ($file in $files){
                     if ($file.LastWriteTime -le $tresholdDate) {
+                        write-host "$($file.extension)"
                         $extensions.add($file.Extension)
                     }
                 }
