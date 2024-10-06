@@ -20,6 +20,8 @@ try{
     # set path to downloads folder
     #$path = (New-Object -ComObject Shell.Application).Namespace('shell:Downloads').Self.Path
     $path = $pathToClean
+    $user = whoami.exe
+    write-host $user
     
     if ($createFiles -eq $true) {
         for($i=0;$i -lt 10; $i++)
