@@ -17,7 +17,8 @@ else{[bool]$dryRun = $false}
 $today = Get-Date
 $tresholdDate = $today.AddDays(-10)
 try{
-    $path = "C:\Users\jan\downloads"
+    # set path to downloads folder
+    $path = (New-Object -ComObject Shell.Application).Namespace('shell:Downloads').Self.Path
     
     if ($createFiles -eq $true) {
         for($i=0;$i -lt 10; $i++)
