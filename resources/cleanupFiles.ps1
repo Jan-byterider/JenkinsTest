@@ -88,7 +88,7 @@ $scriptblock = {
             }else{
                 foreach ($file in $files){
                     if ($file.LastWriteTime -le $tresholdDate) {
-                        $extensions.add("$($files.Extension)")
+                        $extensions.add("$($file.Extension)")
                     }
                 }
             }
