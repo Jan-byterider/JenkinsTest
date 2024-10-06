@@ -13,7 +13,6 @@ param (
     [string]
     $username,
     [Parameter(Mandatory=$true)]
-    [string]
     $secret
 )
 write-host "Powershell script started - Target $hostname - DryRun $dryRun"
