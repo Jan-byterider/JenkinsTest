@@ -19,7 +19,8 @@ pipeline {
                             string(name: 'hostname', defaultValue: '', description: 'target hostname'),
                             bool(name: 'dryRun', defaultValue: true , description: 'actions are not executed when false')
                         ])
-                ])
+                    ])
+                }
             }
         }
         stage("Clone Git Repository") {
@@ -31,19 +32,19 @@ pipeline {
                         poll: true
                     )
                 }
-            }        
-            stage('Hello World') {
-                steps {
-                    script {
-                        println('Hello, World')
-                        String scriptlocation = 'resources\\cleanupFiles.ps1'
-                        powerShell('pwd')
-                        powerShell("${scriptlocation} ${params.hostname} \$true")
+        }        
+        stage('Hello World') {
+            steps {
+                script {
+                    println('Hello, World')
+                    String scriptlocation = 'resources\\cleanupFiles.ps1'
+                    powerShell('pwd')
+                    powerShell("${scriptlocation} ${params.hostname} \$true")
 
-                    }
                 }
             }
         }
     }
 }
+
 
