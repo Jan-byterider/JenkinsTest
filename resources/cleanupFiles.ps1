@@ -101,7 +101,7 @@ $scriptblock = {
             write-host 'no files found - no delete action on files'
         }
         if($dirs){
-            write-host "dirs to delete: $dirs"
+            #write-host "dirs to delete: $dirs"
             if(!$dryRun){
                 foreach($dir in $dirs){
                     if((Get-ChildItem $dir).count -eq 0){
