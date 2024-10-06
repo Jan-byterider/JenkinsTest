@@ -18,7 +18,7 @@ pipeline {
                         parameters([
                             string(name: 'hostname', defaultValue: '', description: 'target hostname'),
                             boolean(name: 'dryRun', defaultValue: true , description: 'actions are not executed when false')
-                        ])bgcx
+                        ]) 
                 }
             }
             stage("Clone Git Repository") {
