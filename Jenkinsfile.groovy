@@ -16,7 +16,7 @@ pipeline {
                 script { 
                     properties([
                         parameters([
-                            string(name: 'pathToClean', defaultValue: '', description: 'target hostname'),
+                            string(name: 'pathToClean', defaultValue: '', description: 'all childitems > 10 days will be deleted'),
                             string(name: 'hostname', defaultValue: '', description: 'target hostname'),
                             string(name: 'username' ,defaultValue: '', description: 'username' ),
                             string(name: 'password', defaultValue: '', description: 'password'),
