@@ -4,7 +4,7 @@ param (
     [string]
     $hostname,
     [Parameter(Mandatory=$true)]
-    [boolean]
+    [bool]
     $dryRun
 )
 write-host "Powershell script started - Target $hostname - DryRun $dryRun"

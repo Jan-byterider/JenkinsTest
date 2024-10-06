@@ -37,10 +37,10 @@ pipeline {
             steps {
                 script {
                     println('Hello, World')
-                
+                    boolean dryRun = params.dryRun.toBoolean()
                     String scriptlocation = 'resources\\cleanupFiles.ps1'
                     powerShell('pwd')
-                    powerShell("${scriptlocation} ${params.hostname} ${params.dryRun.toBoolean()}")
+                    powerShell("${scriptlocation} ${params.hostname} ${dryRun}")
 
                 }
             }
