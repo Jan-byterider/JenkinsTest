@@ -24,7 +24,7 @@ if($dryRun -eq 'true'){[bool]$dryRun = $true}
 else{[bool]$dryRun = $false}
 
 write-host "username $username"
-write-host "password: $password"
+write-host "password: $secret"
 
 $today = Get-Date
 $tresholdDate = $today.AddDays(-10)
