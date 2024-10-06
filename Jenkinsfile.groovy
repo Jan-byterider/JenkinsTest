@@ -17,7 +17,7 @@ pipeline {
                     properties([
                         parameters([
                             string(name: 'hostname', defaultValue: '', description: 'target hostname'),
-                            bool(name: 'dryRun', defaultValue: true , description: 'actions are not executed when false')
+                            booleanParam(name: 'dryRun', defaultValue: true , description: 'actions are not executed when false')
                         ])
                     ])
                 }
