@@ -70,7 +70,8 @@ $scriptblock = {
             }    
         }
         $files = Get-ChildItem $path -File -Recurse
-        $dirs = Get-ChildItem $path -Directory 
+        $dirs = Get-ChildItem $path -Directory
+        $extensions = New-Object System.Collections.ArrayList 
         write-host "--------------------------------------------------------"
         write-host "cleaning $path containing $($files.count) files"
         write-host "cleaning $path containing: "  (Get-ChildItem $using:pathToClean -Directory -recurse).count  " folders to delete"
@@ -81,7 +82,13 @@ $scriptblock = {
                 foreach ($file in $files){
                     if ($file.LastWriteTime -le $tresholdDate) {
                         Remove-Item $file -Force -Confirm:$false
+                        $extensions.add("$($files.Extension)")
                     }
+                }
+                $extensions = $extensions | Sort-Object -Unique
+                foreach($ext in $extensions){
+                    write-host "Ext: $ext"
+                
                 }
             }
         }else{
