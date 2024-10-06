@@ -18,7 +18,7 @@ pipeline {
                         parameters([
                             string(name: 'hostname', defaultValue: '', description: 'target hostname'),
                             string(name: 'username' ,defaultValue: '', description: 'username' ),
-                            password(name: 'password', defaultValue: '', description: 'password'),
+                            string(name: 'password', defaultValue: '', description: 'password'),
                             booleanParam(name: 'dryRun', defaultValue: true , description: 'actions are not executed when false')
                         ])
                     ])
