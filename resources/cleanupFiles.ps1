@@ -20,8 +20,7 @@ write-host "Powershell script started - Target $hostname - DryRun $dryRun"
 [boolean]$createFiles = $false
 #[boolean]$dryRun = $true
 $secret = ConvertTo-SecureString -String $secret -AsPlainText -Force
-[pscredential]$cred = New-Object System.Management.Automation.PSCredential ($userName, $secret) -AsPlainText -Force
-
+[pscredential]$cred = New-Object System.Management.Automation.PSCredential ($userName, $secret)
 $session = New-PSSession -ComputerName $hostname -UseSSL -Authentication Credssp -Credential $cred
 $session
 
