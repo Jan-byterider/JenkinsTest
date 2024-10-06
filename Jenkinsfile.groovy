@@ -17,8 +17,8 @@ pipeline {
                     properties([
                         parameters([
                             string(name: 'pathToClean', defaultValue: 'Downloads', description: 'all childitems > 10 days will be deleted'),
-                            string(name: 'hostname', defaultValue: 'bachus', description: 'target hostname'),
-                            string(name: 'username' ,defaultValue: 'jan@byterider.be', description: 'username' ),
+                            string(name: 'hostname', defaultValue: 'target hostname', description: 'target hostname'),
+                            string(name: 'username' ,defaultValue: 'email address', description: 'username' ),
                             string(name: 'password', defaultValue: '', description: 'password'),
                             booleanParam(name: 'dryRun', defaultValue: true , description: 'actions are not executed when false')
                         ])
