@@ -5,7 +5,7 @@ def powerShell(psCmd) {
 
 parameters { 
     string(name: 'hostname', defaultValue: '', description: 'target hostname')
-    bool(name: 'dryRun', defaultValue: true , description: 'actions are not executed when false')
+    boolean(name: 'dryRun', defaultValue: true , description: 'actions are not executed when false')
     }
 
 pipeline {
