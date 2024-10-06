@@ -81,15 +81,14 @@ $scriptblock = {
             #write-host "files to delete: $files"
             if(!$dryRun){
                 foreach ($file in $files){
-                    if ($file.LastWriteTime -le $tresholdDate) {
+                    if ($file.LastWriteTime -le $using:tresholdDate) {
                         Remove-Item $file -Force -Confirm:$false
-                        $extensions.add($file.Extension)
                     }
                 }
             }else{
                 foreach ($file in $files){
-                    if ($file.LastWriteTime -le $tresholdDate) {
-                        write-host "$($file.extension)"
+                    if ($file.LastWriteTime -le $using:tresholdDate) {
+                        write-host "extension: $file.extension added"
                         $extensions.add($file.Extension)
                     }
                 }
