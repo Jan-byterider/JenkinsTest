@@ -19,12 +19,18 @@ param (
 write-host "Powershell script started - Target $hostname - DryRun $dryRun"
 [boolean]$createFiles = $false
 #[boolean]$dryRun = $true
+$secret = ConvertTo-SecureString -String $secret -AsPlainText -Force
+[pscredential]$cred = New-Object System.Management.Automation.PSCredential ($userName, $secret) -AsPlainText -Force
+
+$session = New-PSSession -ComputerName $hostname -UseSSL -Authentication Credssp -Credential $cred
+$session
 
 if($dryRun -eq 'true'){[bool]$dryRun = $true}
 else{[bool]$dryRun = $false}
 
 write-host "username $username"
 write-host "password: $secret"
+
 
 $today = Get-Date
 $tresholdDate = $today.AddDays(-10)
