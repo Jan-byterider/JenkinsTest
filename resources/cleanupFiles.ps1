@@ -37,7 +37,7 @@ $scriptblock = {
         # set path to downloads folder
         #$path = (New-Object -ComObject Shell.Application).Namespace('shell:Downloads').Self.Path
         try{
-            $path = $pathToClean
+            $path = $using:pathToClean
             $check = Test-Path -path $path
         }catch{
             throw $error[0]
@@ -73,7 +73,7 @@ $scriptblock = {
         $dirs = Get-ChildItem $path -Directory 
         write-host "--------------------------------------------------------"
         write-host "cleaning $path containing $($files.count) files"
-        write-host "cleaning $path containing: "  (Get-ChildItem $pathToClean -Directory -recurse).count  " folders to delete"
+        write-host "cleaning $path containing: "  (Get-ChildItem $using:pathToClean -Directory -recurse).count  " folders to delete"
         write-host "--------------------------------------------------------"
         if($files){
             write-host "files to delete: $files"
