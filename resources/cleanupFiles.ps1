@@ -70,34 +70,57 @@ $scriptblock = {
         
             }    
         }
-        $files = Get-ChildItem $path -File -Recurse
-        $dirs = Get-ChildItem $path -Directory
-        $extensions = New-Object System.Collections.ArrayList 
-        write-host "--------------------------------------------------------"
-        write-host "cleaning $path containing $($files.count) files"
-        write-host "cleaning $path containing: "  (Get-ChildItem $$path -Directory -recurse).count  " folders to delete"
-        write-host "--------------------------------------------------------"
+        try{
+            $files = Get-ChildItem $path -File -Recurse
+            $dirs = Get-ChildItem $path -Directory
+            $extensions = New-Object System.Collections.ArrayList 
+            write-host "--------------------------------------------------------"
+            write-host "cleaning $path containing $($files.count) files"
+            write-host "cleaning $path containing: "  (Get-ChildItem $$path -Directory -recurse).count  " folders to delete"
+            write-host "--------------------------------------------------------"
+        }catch{
+            Write-Error "Error enumerating files and folders $Error[0]"
+            throw $error
+        }
         if($files){
             #write-host "files to delete: $files"
-            if(!$dryRun){
-                foreach ($file in $files){
-                    if ($file.LastWriteTime -le $using:tresholdDate) {
-                        Remove-Item $file -Force -Confirm:$false
+            try {
+                if(!$dryRun){
+                    foreach ($file in $files){
+                        try {
+                            if ($file.LastWriteTime -le $using:tresholdDate) {
+                                Remove-Item $file -Force -Confirm:$false
+                            }
+                        }
+                        catch {
+                            write-warning "Error reading file: $file"
+                            $error.Clear()
+                        }
+                    }
+                }else{
+                    foreach ($file in $files){
+                        try {
+                            if ($file.LastWriteTime -le $using:tresholdDate) {
+                                write-host "extension: $file.extension added"
+                                $extensions.add($file.Extension)
+                            
+                        }
+                        }catch {
+                            write-warning "Error reading file: $file"
+                            $error.Clear()
+                        }
                     }
                 }
-            }else{
-                foreach ($file in $files){
-                    if ($file.LastWriteTime -le $using:tresholdDate) {
-                        write-host "extension: $file.extension added"
-                        $extensions.add($file.Extension)
-                    }
-                }
-            }
-           
+                       
             $extensions = $extensions | Sort-Object -Unique
             foreach($ext in $extensions){
                 write-host "Ext: $ext"
-           }
+            }
+            
+            }catch{
+                write-warning "Error reading file: $file " $error[0]
+                $error.Clear()
+            }   
         }else{
             write-host 'no files found - no delete action on files'
         }
