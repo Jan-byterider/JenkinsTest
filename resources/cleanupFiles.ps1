@@ -72,11 +72,11 @@ $scriptblock = {
         }
         try{
             $files = Get-ChildItem $path -File -Recurse
-            $dirs = Get-ChildItem $path -Directory
+            $dirs = Get-ChildItem $path -Directory 
             $extensions = New-Object System.Collections.ArrayList 
             write-host "--------------------------------------------------------"
             write-host "cleaning $path containing $($files.count) files"
-            write-host "cleaning $path containing: "  (Get-ChildItem $$path -Directory -recurse).count  " folders to delete"
+            write-host "cleaning $path containing: "  $(dirs).count  " folders to delete"
             write-host "--------------------------------------------------------"
         }catch{
             Write-Error "Error enumerating files and folders $Error[0]"
@@ -124,8 +124,8 @@ $scriptblock = {
         }else{
             write-host 'no files found - no delete action on files'
         }
-        if($dirs){
-            #write-host "dirs to delete: $dirs"
+        if($dirs.count -gt 0){
+            write-host "dirs to delete: $dirs"
             if(!$dryRun){
                 foreach($dir in $dirs){
                     if (Test-Path $dir) {
