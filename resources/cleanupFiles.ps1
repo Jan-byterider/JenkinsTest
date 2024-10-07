@@ -76,7 +76,7 @@ $scriptblock = {
             $extensions = New-Object System.Collections.ArrayList 
             write-host "--------------------------------------------------------"
             write-host "cleaning $path containing $($files.count) files"
-            write-host "cleaning $path containing: "  $(dirs).count  " folders to delete"
+            write-host "cleaning $path containing: "  $($dirs).count  " folders to delete"
             write-host "--------------------------------------------------------"
         }catch{
             Write-Error "Error enumerating files and folders $Error[0]"
