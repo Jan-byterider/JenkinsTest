@@ -100,6 +100,7 @@ $scriptblock = {
                 }else{
                     foreach ($file in $files){
                         try {
+                            write-host "File $file"
                             if ($file.LastWriteTime -le $using:tresholdDate) {
                                 write-host "extension: $file.extension added"
                                 $extensions.add($file.Extension)
