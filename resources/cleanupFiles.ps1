@@ -101,9 +101,12 @@ $scriptblock = {
                     foreach ($file in $files){
                         try {
                             write-host "File $file"
-                            if ($file.LastWriteTime -le $using:tresholdDate) {
-                                write-host "extension: $file.extension added"
-                                $extensions.add($file.Extension)
+                            
+                       if ($file.FullName -notlike "E:\OneDrive - byterider.be*") {
+                             if ($file.LastWriteTime -le $using:tresholdDate) {
+                                 write-host "extension: $file.extension added"
+                                 $extensions.add($file.Extension)
+                       }
                             
                         }
                         }catch {
@@ -129,9 +132,12 @@ $scriptblock = {
             write-host "dirs to delete: $dirs" -ErrorAction Ignore
             if(!$dryRun){
                 foreach($dir in $dirs){
-                    if (Test-Path $dir) {
-                        if((Get-ChildItem $dir -ErrorAction SilentlyContinue).count -eq 0){
-                            Remove-Item $dir -Force
+                    
+                    if ($dir.FullName -notlike "E:\OneDrive - byterider.be*") {
+                        if (Test-Path $dir) {
+                            if((Get-ChildItem $dir -ErrorAction SilentlyContinue).count -eq 0){
+                                Remove-Item $dir -Force
+                            }
                         }
                     }
                 }
