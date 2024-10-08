@@ -41,11 +41,11 @@ $scriptblock = {
             $path = (New-Object -ComObject Shell.Application).Namespace("shell:$path").Self.Path
             $check = Test-Path -path $path
         }catch{
-            throw $error[0]
+            write-host $error[0]
         }
         if(!$check)
         {
-            throw "ERROR: $path does not exists on $hostname"
+            write-host "ERROR: $path does not exists on $hostname"
         }
         
         $user = whoami.exe
