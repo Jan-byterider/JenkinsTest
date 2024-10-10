@@ -128,7 +128,7 @@ $scriptblock = {
         }else{
             write-host 'no files found - no delete action on files'
         }
-        if($dirs.count -gt 0){
+        <#if($dirs.count -gt 0){
             write-host "dirs to delete: $dirs" -ErrorAction Ignore
             if(!$dryRun){
                 foreach($dir in $dirs){
@@ -144,7 +144,7 @@ $scriptblock = {
             }
         }else{
             write-host 'no dirs found - no delete action on folders'
-        }
+        }#>
     }catch{
         write-host "Script Block Error cleaning $path"
         write-host $error
