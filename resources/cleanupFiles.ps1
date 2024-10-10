@@ -84,6 +84,7 @@ $scriptblock = {
         }
         if($files){
             #write-host "files to delete: $files"
+            $files
             try {
                 if(!$dryRun){
                     foreach ($file in $files){
