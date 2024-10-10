@@ -81,6 +81,6 @@ public class Test {
 
 def testObj = new Test(string1,string2)
 def testObj2 = new Test(string1,string2)
-String resultaat = testObj.compare(string1,string2)
+String resultaat = testObj.compare(testObj,testObj2)
 
 //println("${resultaat}")
