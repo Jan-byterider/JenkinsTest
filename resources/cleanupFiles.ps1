@@ -71,13 +71,13 @@ $scriptblock = {
             }    
         }
         try{
-            $exclude = @("E:\OneDrive - byterider.be*")
-            $files = Get-ChildItem $path -File -Recurse | ?{$_.FullPath -notlike $exclude} 
-            $dirs = Get-ChildItem $path -Directory | ?{$_.FullPath -notlike $exclude} 
+            #$exclude = @("E:\OneDrive - byterider.be*")
+            $files = (Get-ChildItem $path -File -Recurse).FullName
+            $dirs = (Get-ChildItem $path -Directory).fullName  
             $extensions = New-Object System.Collections.ArrayList 
             write-host "--------------------------------------------------------"
             write-host "cleaning $path containing $($files.count) files"
-            write-host "cleaning $path containing: "  $($dirs).count  " folders to delete"
+            write-host "cleaning $path containing: $($dirs.count) folders to delete"
             write-host "--------------------------------------------------------"
         }catch{
             Write-Error "Error enumerating files and folders $Error[0]"
