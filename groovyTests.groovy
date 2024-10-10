@@ -80,6 +80,7 @@ public class Test {
 }
 
 def testObj = new Test(string1,string2)
-String resultaat = testObj.compare()
+def testObj2 = new Test(testObj)
+String resultaat = testObj.compare(string1,string2)
 
 //println("${resultaat}")
