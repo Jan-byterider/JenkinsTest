@@ -71,7 +71,8 @@ $scriptblock = {
             }    
         }
         try{
-            $files = Get-ChildItem $path -File -Recurse
+            $exclude = @("E:\Janssens\Downloads\OneDrive*")
+            $files = Get-ChildItem $path -File -Recurse -Exclude $exclude 
             $dirs = Get-ChildItem $path -Directory 
             $extensions = New-Object System.Collections.ArrayList 
             write-host "--------------------------------------------------------"
