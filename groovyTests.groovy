@@ -1,4 +1,7 @@
 /* groovylint-disable CompileStatic */
+Integer test = 5
+String strTest = "$test"
+println(strTest)
 
 def echo(String text) {
     println("${text}")

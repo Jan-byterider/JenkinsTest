@@ -159,5 +159,5 @@ try{
     Invoke-Command -Session $session -ScriptBlock $scriptblock -ErrorAction Stop
 }catch{
     write-host "Script block invocation error"
-    write-host $error[0]
+    $Error.Clear()
 }
