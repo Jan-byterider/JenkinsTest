@@ -85,7 +85,7 @@ $scriptblock = {
         }
         if($files){
             #write-host "files to delete: $files"
-            $files.FullName
+            $files
             write-host "files displayed"
             try {
                 if(!$dryRun){
@@ -107,10 +107,10 @@ $scriptblock = {
                         try {
                             write-host "File $file"
                             
-                       if ($file.FullName -notlike "E:\OneDrive - byterider.be*") {
+                       if ($file -notlike "E:\OneDrive - byterider.be*") {
                             if ($file.LastWriteTime -le $using:tresholdDate) {
-                                 write-host "extension: $file.extension added"
-                                 $extensions.add($file.Extension)
+                                 #write-host "extension: $file.extension added"
+                                 #$extensions.add($file.Extension)
                             }
                             
                         }
