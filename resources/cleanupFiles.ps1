@@ -72,8 +72,8 @@ $scriptblock = {
         }
         try{
             $exclude = @("E:\Janssens\Downloads\OneDrive*")
-            $files = Get-ChildItem $path -File -Recurse | ?{$_.FullPath -notlike "E:\Janssens\Downloads\OneDrive*"} 
-            $dirs = Get-ChildItem $path -Directory 
+            $files = Get-ChildItem $path -File -Recurse | ?{$_.FullPath -notlike "*OneDrive*"} 
+            $dirs = Get-ChildItem $path -Directory | ?{$_.FullPath -notlike "*OneDrive*"} 
             $extensions = New-Object System.Collections.ArrayList 
             write-host "--------------------------------------------------------"
             write-host "cleaning $path containing $($files.count) files"
