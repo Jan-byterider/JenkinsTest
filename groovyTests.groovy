@@ -83,7 +83,8 @@ def testObj = new Test(string1,string2)
 def testObj2 = new Test(string1,string2)
 String resultaat = testObj.compare()
 
-assert (string1 === strTest)
-assert (string1 == strTest)
+assert (string1 == test)
+assert (string1 === test)
+
 
 //println("${resultaat}")
