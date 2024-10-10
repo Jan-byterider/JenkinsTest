@@ -10,6 +10,9 @@ def powerShell(psCmd) {
 
 pipeline {
     agent any
+    options {
+        timestamps()
+    }
     stages {
         stage('Setup parameters') {
             steps {

@@ -5,27 +5,27 @@ def echo(String text) {
 } 
 
 String string1 = "doof"
-String string2 = 'doof'
+String string2 = 'doofpot'
 
 //if (string1 === string2) {echo "JEEJ ${string1} is gelijk aan ${string2}"}
 
 public class Test {
     private final String een;
     private final String twee;
-    private Map result = [];
     
+
     Test(String een,String twee){
 
         this.een = een;
         this.twee = twee;
-        this.result = result;
+        //this.result = result;
 
         //return this
     }  
 
     private def echo(String text) {
     println("${text}");
-    }²
+    }
     
     public def createConfigJson(Map configMap) {
         def jsonBuilder = new StringBuilder().append("{\n")
@@ -37,30 +37,34 @@ public class Test {
         // Delete last ',' instead of the newline
         jsonBuilder.deleteCharAt(jsonBuilder.length() - 2)
         jsonBuilder.append("}")
+        return (jsonBuilder.toString());
     }
 
     public def compare()
     {
+        Map result = ['this.een':"${this.een}"]
+        result.put('operator','==')
+        result.put('this.twee',"${this.twee}")
         if(this.een  == this.twee ){
-            this.result << "${this.een} == ${this.twee}";
+            result.put('resultaat', "this.een == ${this.twee}");
             echo("${this.een} == ${this.twee}");
         } else {
-            this.result << "${this.een} != ${this.twee}";
+            result.put('resultaat', "this.een != ${this.twee}");
             echo("${this.een} != ${this.twee}");
         }
-        if(this.een  === this.twee){
-            this.result << "${this.een} === ${this.twee}";
+        if(this.een  === this.twee ){
+            result.put('resultaat', "this.een === ${this.twee}");
             echo("${this.een} === ${this.twee}");
         } else {
-            this.result << "${this.een} !== ${this.twee}";
+            result.put('resultaat', "this.een !== ${this.twee}");
             echo("${this.een} !== ${this.twee}");
-        }
+        
+        //def resultb = result
+        
         def resultb = result
-        if(this.een  === this.twee){
-            this.result << "resultb === this.result";
-            echo("${this.een} === ${this.twee}");
-        }
-        String resultJSonString = createConfigJson(this.result)
+         if(result == resultb){echo "result: ${result} == resultb: ${resultb}"}
+        if(result === resultb){echo "result === resultb"}
+        String resultJSonString = createConfigJson(result)
         return resultJSonString
     }
     
@@ -69,9 +73,10 @@ public class Test {
    // objectList.put(['object2',"${this.twee}"])
    // objectList["result"] = this.result
     
+    }
 }
 
 def testObj = new Test(string1,string2)
+String resultaat = testObj.compare()
 
-testObj.compare()
-
+//println("${resultaat}")
