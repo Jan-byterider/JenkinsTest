@@ -88,16 +88,18 @@ $scriptblock = {
                 if(!$dryRun){
                     foreach ($file in $files){
                         try {
-                            if ($file.LastWriteTime -le $using:tresholdDate) {
-                                Remove-Item $file -Force -Confirm:$false
+                            if ($file.FullName -notlike "*'OneDrive - byterider.be*") {
+                                if ($file.LastWriteTime -le $using:tresholdDate) {
+                                    Remove-Item $file -Force -Confirm:$false
+                                }
                             }
-                        }
-                        catch {
-                            write-warning "Error reading file: $file"
-                            $error.Clear()
+                        }catch {
+                                write-warning "Error reading file: $file"
+                                $error.Clear()
                         }
                     }
-                }else{
+                }
+                else{
                     foreach ($file in $files){
                         try {
                             write-host "File $file"
