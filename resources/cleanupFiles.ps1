@@ -71,9 +71,9 @@ $scriptblock = {
             }    
         }
         try{
-            $exclude = @("E:\Janssens\Downloads\OneDrive*")
-            $files = Get-ChildItem $path -File -Recurse | ?{$_.FullPath -notlike "*OneDrive*"} 
-            $dirs = Get-ChildItem $path -Directory | ?{$_.FullPath -notlike "*OneDrive*"} 
+            $exclude = @("E:\OneDrive - byterider.be*")
+            $files = Get-ChildItem $path -File -Recurse | ?{$_.FullPath -notlike $exclude} 
+            $dirs = Get-ChildItem $path -Directory | ?{$_.FullPath -notlike $exclude} 
             $extensions = New-Object System.Collections.ArrayList 
             write-host "--------------------------------------------------------"
             write-host "cleaning $path containing $($files.count) files"
@@ -108,10 +108,10 @@ $scriptblock = {
                             write-host "File $file"
                             
                        if ($file.FullName -notlike "E:\OneDrive - byterider.be*") {
-                             if ($file.LastWriteTime -le $using:tresholdDate) {
+                            if ($file.LastWriteTime -le $using:tresholdDate) {
                                  write-host "extension: $file.extension added"
                                  $extensions.add($file.Extension)
-                       }
+                            }
                             
                         }
                         }catch {
@@ -127,7 +127,7 @@ $scriptblock = {
             }
             
             }catch{
-                write-warning "Error reading file: $file " $error[0]
+                write-warning "Error reading file: $file " 
                 $error.Clear()
             }   
         }else{
