@@ -1,3 +1,4 @@
+@Library('sharedLibs@main')
 def powerShell(psCmd) {
     psCmd=psCmd.replaceAll("%", "%%")
     bat "powershell.exe -NonInteractive -ExecutionPolicy Bypass -Command \"\$ErrorActionPreference='Stop';[Console]::OutputEncoding=[System.Text.Encoding]::UTF8;$psCmd;EXIT \$global:LastExitCode\""
@@ -14,6 +15,12 @@ pipeline {
         timestamps()
     }
     stages {
+        stage('Git Checkout'){
+            gitCheckout(
+                branch:"main",
+                url: "https://github.com/Jan-byterider/PSBackup.git"
+            )
+        }
         stage('Setup parameters') {
             steps {
                 script { 
