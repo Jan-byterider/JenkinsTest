@@ -72,7 +72,7 @@ $scriptblock = {
         }
         try{
             $exclude = @("E:\Janssens\Downloads\OneDrive*")
-            $files = Get-ChildItem $path -File -Recurse -Exclude $exclude 
+            $files = Get-ChildItem $path -File -Recurse | ?{$_.FullPath -notlike "E:\Janssens\Downloads\OneDrive*"} 
             $dirs = Get-ChildItem $path -Directory 
             $extensions = New-Object System.Collections.ArrayList 
             write-host "--------------------------------------------------------"
