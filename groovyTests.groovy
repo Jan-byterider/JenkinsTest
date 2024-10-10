@@ -78,13 +78,24 @@ public class Test {
     
     }
 }
+try{
+    def testObj = new Test(string1,string2)
+    assert (string1 == strTest)
+}catch (err){
+    try{
+        assert (string1 === strTest)
+    }catch (err2){
+        throw err2
+    }
+}
 
-def testObj = new Test(string1,string2)
+
+
 def testObj2 = new Test(string1,string2)
 String resultaat = testObj.compare()
 
-assert (string1 == test)
-assert (string1 === test)
+assert (string1 == strTest)
+assert (string1 === strTest)
 
 
 //println("${resultaat}")
