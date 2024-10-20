@@ -15,14 +15,11 @@ pipeline {
         timestamps()
     }
     stages {
-        stage('Git Checkout'){
-           step{
-                    gitCheckout(
-                        branch: "main",
-                        url: "https://github.com/Jan-byterider/PSBackup.git"
-                    )
-           }
-           
+        tage('Git Checkout'){
+            gitCheckout(
+                branch: "main",
+                url: "https://github.com/Jan-byterider/PSBackup.git"
+            )
         }
     }
 }
