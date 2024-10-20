@@ -28,4 +28,5 @@ $jsonObj.Add($newJsonObject)
 
 $shareJson = $jsonObj | ConvertTo-Json 
 $shareJson | out-file -path $jsonFilePath -Force
+write-host 
 
