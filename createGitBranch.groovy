@@ -19,6 +19,7 @@ pipeline {
             gitCheckout(
                 branch: "develop",
                 url: "https://github.com/Jan-byterider/JenkinsTest.git"
+                credentialsId:'ba38f6eb-05e7-4f5b-9fa5-7d5cc7b16184'
             )
             /* dir('newBranch'){
                 checkout -b 'newBranch'
