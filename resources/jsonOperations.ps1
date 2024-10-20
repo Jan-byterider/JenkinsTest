@@ -61,6 +61,6 @@ try {
 }
 catch {
     Write-Host "Error writing json $jsonFilePath2"
-    $Error[0]
+    throw $Error
     $_
 }
