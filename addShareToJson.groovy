@@ -28,6 +28,8 @@ pipeline {
                         parameters([
                             string(name: 'sharePath', defaultValue: '', description: 'path of the share \\networklocation\folder'),
                             string(name: 'retentionDays', defaultValue: '30', description: 'days to keep the files'),
+                            string(name: 'username' ,defaultValue: 'email address', description: 'username' ),
+                            string(name: 'password', defaultValue: '', description: 'password'),
                             booleanParam(name: 'dryRun', defaultValue: true , description: 'actions are not executed when false')
                         ])
                     ])
@@ -85,7 +87,7 @@ pipeline {
                     bat "git switch newJsonFileBranch"
                     String scriptlocation = "resources\\jsonOperations.ps1"
                     powerShell('pwd')
-                    powerShell("${scriptlocation} ${params.sharePath} ${params.retentionDays} ${jsonFilePath}")    
+                    powerShell("${scriptlocation} ${params.sharePath} ${params.retentionDays} ${jsonFilePath}${params.username} ${params.password}")    
                     bat "git add jsonFilePath"
                     bat "git commit -a -m 'test'"
                     bat "git switch origin/Develop"

@@ -8,11 +8,17 @@ param (
     $retentionDays,
     [Parameter(Mandatory=$true)]
     [string]
-    $jsonFilePath
+    $jsonFilePath,
+    [Parameter(Mandatory=$true)]
+    [string]
+    $username,
+    [Parameter(Mandatory=$true)]
+    $secret
 )
 
 write-host "Powershell script started - SharePath: $sharePath retentionDays: $retentionDays jsonFilePath: $jsonFilePath"
-
+$secret = ConvertTo-SecureString -String $secret -AsPlainText -Force
+[pscredential]$cred = New-Object System.Management.Automation.PSCredential ($userName, $secret)
 #[boolean]$dryRun = $true#read json
 try {
     $jsonFileContent = Get-Content -Raw $jsonFilePath
@@ -43,7 +49,7 @@ catch {
 
 try {
     $shareJson = $jsonObj | ConvertTo-Json 
-    $shareJson | out-file -path $jsonFilePath -Force
+    Invoke-Command -Credential $cred -command { $using:shareJson | out-file -path $using:jsonFilePath -Force }
     write-host 
     
 }
