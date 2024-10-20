@@ -88,15 +88,16 @@ pipeline {
                     String scriptlocation = "resources\\jsonOperations.ps1"
                     powerShell('pwd')
                     try{
-                        powerShell("${scriptlocation} ${params.sharePath} ${params.retentionDays} ${jsonFilePath} ${params.username} ${params.password}")    
-                    } catch (err) {
+                        powerShell("${scriptlocation} ${params.sharePath} ${params.retentionDays} ${jsonFilePath} ${params.username} ${params.password}") 
+                        bat "git add jsonFilePath"
+                        bat "git commit -a -m 'test'"
+                        bat "git switch origin/Develop"
+                        bat "git merge newJsonFileBranch"   
+                        } catch (err) {
                         println "catching error ${err} "
                     }
 
-                    bat "git add jsonFilePath"
-                    bat "git commit -a -m 'test'"
-                    bat "git switch origin/Develop"
-                    bat "git merge newJsonFileBranch"
+                    
                     bat "git branch -D origin/newJsonFileBranch"
                 }
             }
