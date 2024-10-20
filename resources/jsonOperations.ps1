@@ -58,7 +58,7 @@ try {
     Get-Location | Write-Host
     $items = Get-ChildItem -Recurse 
     write-host $items
-    $session = New-PSSession -Credential $cred -UseSSL -ComputerName bachus
+    $session = New-PSSession -Credential $cred -Authentication Credssp -UseSSL -ComputerName bachus
     Invoke-Command -Session $session  -ScriptBlock {
         param(
             [Parameter]
