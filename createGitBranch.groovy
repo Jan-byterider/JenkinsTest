@@ -16,10 +16,12 @@ pipeline {
     }
     stages {
         stage('Git Checkout'){
-            gitCheckout(
-                branch: "main",
-                url: "https://github.com/Jan-byterider/PSBackup.git"
-            )
+            steps {
+                    git(gitCheckout(
+                        branch: "main",
+                        url: "https://github.com/Jan-byterider/PSBackup.git"
+                    )
+            }
         }
     }
 }
