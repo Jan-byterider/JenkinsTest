@@ -54,7 +54,7 @@ pipeline {
                 script {
                     bat "git branch -D newBranch"
                     bat "git checkout -b newBranch"
-                    bat "git push -u origin newBranch"
+                    bat "git push -u origin newBranch:newBranch"
                 }
             }
         }
