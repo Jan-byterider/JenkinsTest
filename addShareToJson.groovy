@@ -70,6 +70,7 @@ pipeline {
                         bat "git branch -D origin/newJsonFileBranch"  
                         } catch (err) {
                         println "catching error ${err} "
+                        throw err
                     }
                     /*
                     bat "echo New file > newFile.txt" 
