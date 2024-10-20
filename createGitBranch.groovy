@@ -49,7 +49,7 @@ pipeline {
                 )
                 script {
                     'checkout -b newBranch'
-                     'push --set-upstream origin new-branch'd
+                     'push --set-upstream origin new-branch'
                 }
             }
         }
