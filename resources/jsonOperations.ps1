@@ -59,9 +59,12 @@ try {
     $items = Get-ChildItem -Recurse 
     write-host $items
     Invoke-Command -Credential $cred  -ScriptBlock {
-        param($p1) 
-        write-host "parameter info : $p1"
-        $p1 | out-file -FilePath .\nasCleanupByRetentionDate.json} -ArgumentList $shareJson
+        param(
+            [Parameter]
+            $shareJson
+        ) 
+        write-host "parameter info : $shareJson"
+        $p1 | out-file -FilePath .\nasCleanupByRetentionDate.json} -ArgumentList @($shareJson)
     #write-host 
     
 }
