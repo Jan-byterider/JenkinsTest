@@ -49,4 +49,5 @@ try {
 }
 catch {
     Write-Host "Error writing json $jsonFilePath"
+    $Error[0]
 }
