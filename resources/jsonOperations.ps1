@@ -61,6 +61,7 @@ try {
 }
 catch {
     Write-Host "Error writing json $jsonFilePath2"
+    Write-host -f red "Encountered Error:"$_.Exception.Message
     throw $Error
     $_
 }
