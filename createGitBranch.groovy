@@ -45,7 +45,7 @@ pipeline {
                     url: "https://github.com/Jan-byterider/JenkinsTest.git",
                     branch: "newBranch",
                     changelog: true,
-                    poll: true
+                    poll: true,
                     upstream: true
                     //push: true
                     
