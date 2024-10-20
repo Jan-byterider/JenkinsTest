@@ -56,7 +56,7 @@ pipeline {
 
                     bat "git checkout -b newJsonFileBranch"
                     bat "git switch newJsonFileBranch"
-                    bat "git pull origin/Develop"
+                    bat "git fetch origin Develop"
                     /*
                     bat "echo New file > newFile.txt" 
                     bat "git add newFile.txt"
