@@ -53,8 +53,9 @@ catch {
 
 try {
     $shareJson = $jsonObj | ConvertTo-Json 
+    write-host $shareJson
     Invoke-Command -Credential $cred -command { $using:shareJson | out-file -path $using:jsonFilePath -Force }
-    write-host 
+    #write-host 
     
 }
 catch {
