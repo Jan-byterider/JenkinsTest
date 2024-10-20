@@ -53,7 +53,7 @@ pipeline {
                 
                 script {
                     bat "git checkout -b newJsonFileBranch4"
-                     bat "git pull remote Develop"
+                     bat "git pull origin Develop"
                     bat "echo New file > newFile.txt" 
                     bat "git add newFile.txt"
                     bat "git commit -a -m 'test'"
@@ -63,7 +63,7 @@ pipeline {
                     bat "git branch -D newJsonFileBranch4"
                     bat "git branch -D newJsonFileBranch3"
                     bat "git branch -D newJsonFileBranch2"
-                    bat "git branch -D origin/newBranch"
+                    bat "git branch -D origin newBranch"
                 }
             }
         }
