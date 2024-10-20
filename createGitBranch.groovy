@@ -45,16 +45,15 @@ pipeline {
                     url: "https://github.com/Jan-byterider/JenkinsTest.git",
                     branch: "newBranch",
                     changelog: true,
-                    poll: true,
-                    upstream: true
+                    poll: true
+                    //upstream: true
                     //push: true
                     
                 )
                 
                 script {
-                    //'checkout -b newBranch'
-                     'push --set-upstream origin newBranch'
-                     gitCheckout                }
+                    bat "git checkout -b newBranch"
+                }
             }
         }
     }
