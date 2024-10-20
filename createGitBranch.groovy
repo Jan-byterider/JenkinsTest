@@ -52,9 +52,9 @@ pipeline {
                 )
                 
                 script {
-                    bat "git branch -D newBranch"
-                    bat "git checkout -b newBranch"
-                    bat "git push -u origin newBranch:newBranch"
+                    bat "git checkout -b newJsonFileBranch"
+                    bat "git pull origin Develop"
+                    bat "git push -u origin newJsonFileBranch"
                 }
             }
         }
