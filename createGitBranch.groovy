@@ -17,12 +17,13 @@ pipeline {
     stages {
         stage('Git Checkout'){
            stage('Git Checkout'){
-            gitCheckout(
-                branch: "main",
-                url: "https://github.com/Jan-byterider/PSBackup.git"
-            )
-        }
-
+                step{
+                    gitCheckout(
+                        branch: "main",
+                        url: "https://github.com/Jan-byterider/PSBackup.git"
+                    )
+                }
+           }
         }
     }
 }
