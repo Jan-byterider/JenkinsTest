@@ -53,7 +53,7 @@ catch {
 }
 
 try {
-    $shareJson = $jsonObj | ConvertTo-Json 
+    $shareJson = $jsonObj | ConvertTo-Json - 
     write-host "shareJson: $shareJson"
     Get-Location | Write-Host
     $items = Get-ChildItem -Recurse 
@@ -65,7 +65,7 @@ try {
             $shareJsdon
         ) 
         write-host "parameter info : $shareJson"
-         out-file $shareJson  -FilePath .\nasCleanupByRetentionDate.json}-ArgumentList @($shareJson)
+        $shareJson | out-file  -FilePath .\nasCleanupByRetentionDate.json}-ArgumentList @($shareJson)
     #write-host 
     
 }
