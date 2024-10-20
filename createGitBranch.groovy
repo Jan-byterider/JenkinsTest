@@ -17,7 +17,7 @@ pipeline {
     stages {
         stage('Git Checkout'){
             gitCheckout(
-                branch: "main",
+                branch: "develop",
                 url: "https://github.com/Jan-byterider/JenkinsTest.git"
             )
             /* dir('newBranch'){
