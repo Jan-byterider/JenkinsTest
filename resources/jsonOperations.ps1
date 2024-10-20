@@ -58,13 +58,13 @@ try {
     Get-Location
     $items = Get-ChildItem -Recurse 
     write-host $items
-    Invoke-Command -Credential $cred -command { $using:shareJson | out-file -path resources\nasCleanupByRetentionDate.json -Force }
+    Invoke-Command -Credential $cred -command { $using:shareJson | out-file -path .\nasCleanupByRetentionDate.json -Force }
     #write-host 
     
 }
 catch {
     Write-Host "Error writing json ..\nasCleanupByRetentionDate.json"
     Write-host -f red "Encountered Error:"$_.Exception.Message
-    throw $Error
+    throw $_
     $_
 }
