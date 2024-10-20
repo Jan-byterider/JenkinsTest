@@ -174,5 +174,9 @@
   {
     "Share": "\\\\testikkel\\test",
     "Retention": 147
+  },
+  {
+    "Share": "\\\\ffkef\\\\dd",
+    "Retention": 14
   }
 ]

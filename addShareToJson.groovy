@@ -4,7 +4,7 @@ def powerShell(psCmd) {
     bat "powershell.exe -NonInteractive -ExecutionPolicy Bypass -Command \"\$ErrorActionPreference='Stop';[Console]::OutputEncoding=[System.Text.Encoding]::UTF8;$psCmd;EXIT \$global:LastExitCode\""
 }
 
-def jsonFilePath = 'resources\\nasCleanupByRetentionDate.json'
+def jsonFilePath = "C:\\git\\JenkinsTest\\resources\\nasCleanupByRetentionDate.json"
 
 pipeline {
     agent any
