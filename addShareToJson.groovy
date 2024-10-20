@@ -4,7 +4,7 @@ def powerShell(psCmd) {
     bat "powershell.exe -NonInteractive -ExecutionPolicy Bypass -Command \"\$ErrorActionPreference='Stop';[Console]::OutputEncoding=[System.Text.Encoding]::UTF8;$psCmd;EXIT \$global:LastExitCode\""
 }
 
-def jsonFilePath = "C:\\git\\JenkinsTest\\resources\\nasCleanupByRetentionDate.json"
+def jsonFilePath = "resources\\nasCleanupByRetentionDate.json"
 
 pipeline {
     agent any
@@ -59,32 +59,6 @@ pipeline {
                     bat "git checkout -b newJsonFileBranch"
                     bat "git switch newJsonFileBranch"
                     bat "git fetch origin Develop"
-                    /*
-                    bat "echo New file > newFile.txt" 
-                    bat "git add newFile.txt"
-                    bat "git commit -a -m 'test'"
-                    bat "git switch origin/Develop"
-                    bat "git merge newJsonFileBranch"
-                    bat "git branch -D origin/newBranch"
-                    bat "git branch -D newJsonFileBranch"
-                    */
-                }
-            }
-        }
-        stage('add shares to Json file') {
-            steps {
-                git(
-                    url: "https://github.com/Jan-byterider/JenkinsTest.git",
-                    branch: "Develop",
-                    changelog: true,
-                    poll: true
-                    //upstream: true
-                    //push: true
-                    
-                )
-                
-                script {
-                    bat "git switch newJsonFileBranch"
                     String scriptlocation = "resources\\jsonOperations.ps1"
                     powerShell('pwd')
                     try{
@@ -97,12 +71,19 @@ pipeline {
                         } catch (err) {
                         println "catching error ${err} "
                     }
-
-                    
-                    
+                    /*
+                    bat "echo New file > newFile.txt" 
+                    bat "git add newFile.txt"
+                    bat "git commit -a -m 'test'"
+                    bat "git switch origin/Develop"
+                    bat "git merge newJsonFileBranch"
+                    bat "git branch -D origin/newBranch"
+                    bat "git branch -D newJsonFileBranch"
+                    */
                 }
             }
         }
+        
     }
 }
     
