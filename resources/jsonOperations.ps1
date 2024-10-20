@@ -53,7 +53,7 @@ catch {
 }
 
 try {
-    $shareJson = $jsonObj | ConvertTo-Json -EnumsAsStrings  
+    $shareJson =  ConvertTo-Json -EnumsAsStrings -InputObject $jsonObj 
     write-host "shareJson: $shareJson"
     Get-Location | Write-Host
     $items = Get-ChildItem -Recurse 
