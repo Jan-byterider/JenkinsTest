@@ -20,9 +20,9 @@ pipeline {
                 branch: "main",
                 url: "https://github.com/Jan-byterider/JenkinsTest.git"
             )
-            dir('newBranch'){
+            /* dir('newBranch'){
                 checkout -b 'newBranch'
-            }
+            } */
 
         }
     }
