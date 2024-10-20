@@ -21,7 +21,7 @@ pipeline {
                 url: "https://github.com/Jan-byterider/JenkinsTest.git"
             )
             dir('newBranch'){
-                checkout -b scm
+                checkout -b 'newBranch'
             }
 
         }
