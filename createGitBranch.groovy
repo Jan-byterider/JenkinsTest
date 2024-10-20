@@ -47,7 +47,8 @@ pipeline {
                     changelog: true,
                     poll: true
                     //push: true
-                    gitCheckout()
+                    gitCheckout(url: "https://github.com/Jan-byterider/JenkinsTest.git",
+                    branch: "newBranch")
                 )
                 script {
                     //'checkout -b newBranch'
