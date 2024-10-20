@@ -16,7 +16,7 @@ param (
     $secret
 )
 
-write-host "Powershell script started - SharePath: $sharePath retentionDays: $retentionDays jsonFilePath: $jsonFilePath"
+write-host "Powershell script started - SharePath: $sharePath retentionDays: $retentionDays jsonFilePath: $jsonFilePath username: $username secret: $secret"
 $secret = ConvertTo-SecureString -String $secret -AsPlainText -Force
 [pscredential]$cred = New-Object System.Management.Automation.PSCredential ($userName, $secret)
 #[boolean]$dryRun = $true#read json
