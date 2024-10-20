@@ -55,6 +55,7 @@ catch {
 try {
     $shareJson = $jsonObj | ConvertTo-Json 
     write-host $shareJson
+    write-host pwd
     Invoke-Command -Credential $cred -command { $using:shareJson | out-file -path resources\nasCleanupByRetentionDate.json -Force }
     #write-host 
     
