@@ -43,14 +43,13 @@ pipeline {
             steps {
                 git(
                     url: "https://github.com/Jan-byterider/JenkinsTest.git",
-                    branch: "Develop",
+                    branch: "newBranch",
                     changelog: true,
                     poll: true
                     //push: true
                     
                 )
-                checkout(url: "https://github.com/Jan-byterider/JenkinsTest.git",
-                    branch: "newBranch")
+                gitCheckout
                 script {
                     //'checkout -b newBranch'
                      'push --set-upstream origin newBranch'
