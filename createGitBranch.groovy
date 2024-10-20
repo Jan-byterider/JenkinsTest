@@ -48,7 +48,7 @@ pipeline {
                     poll: true
                 )
                 script {
-                    checkout '-b newBranch'
+                    checkout -b newBranch
                 }
 
         
