@@ -62,7 +62,7 @@ try {
     Invoke-Command -Session $session  -ScriptBlock {
         param(
             [Parameter()]
-            @($shareJsdon)
+            $shareJsdon
         ) 
         write-host "parameter info : $shareJson"
          out-file $shareJson  -FilePath .\nasCleanupByRetentionDate.json}-ArgumentList @($shareJson)
