@@ -52,12 +52,13 @@ pipeline {
                 )
                 
                 script {
-                    bat "git checkout -b newJsonFileBranch2 origin/develop"
+                    bat "git checkout -b newJsonFileBranch3 origin/develop"
                     bat "echo New file > newFile.txt" 
-                    bat " git commit -a -m 'test'"
+                    bat "git add newFile.txt"
+                    bat "git commit -a -m 'test'"
                     bat "git branch origin/Develop"
-                    bat "git merge newJsonFileBranch2"
-                    bat "git branch -D newJsonFileBranch2"
+                    bat "git merge newJsonFileBranch3"
+                    bat "git branch -D newJsonFileBranch3"
                 }
             }
         }
