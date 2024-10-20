@@ -55,7 +55,7 @@ catch {
 try {
     $shareJson = $jsonObj | ConvertTo-Json 
     write-host "shareJson: $shareJson"
-    Get-Location
+    Get-Location | Write-Host
     $items = Get-ChildItem -Recurse 
     write-host $items
     Invoke-Command -Credential $cred  -ScriptBlock {
