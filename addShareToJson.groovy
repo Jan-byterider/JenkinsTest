@@ -83,7 +83,7 @@ pipeline {
                 
                 script {
                     bat "git switch newJsonFileBranch"
-                    String scriptlocation = 'resources\\jsonFilePath'
+                    String scriptlocation = "resources\\jsonOperations.ps1"
                     powerShell('pwd')
                     powerShell("${scriptlocation} ${params.sharePath} ${params.retentionDays} ${jsonFilePath}")    
                     bat "git add jsonFilePath"
