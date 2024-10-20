@@ -27,6 +27,7 @@ try {
     $jsonFileContent = Get-Content -Raw $jsonFilePath
     $jsonObj = [System.Collections.ArrayList]::new()
     [System.Collections.ArrayList]$jsonObj = ConvertFrom-Json $jsonFileContent
+    Write-Host $jsonObj
 } catch {
     Write-Host "Error loading json $jsonFilePath"
 }
