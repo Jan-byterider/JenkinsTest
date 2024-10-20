@@ -58,7 +58,7 @@ try {
     Get-Location
     $items = Get-ChildItem -Recurse 
     write-host $items
-    #Invoke-Command -Credential $cred -command { $using:shareJson | out-file -path resources\nasCleanupByRetentionDate.json -Force }
+    Invoke-Command -Credential $cred -command { $using:shareJson | out-file -path resources\nasCleanupByRetentionDate.json -Force }
     #write-host 
     
 }
