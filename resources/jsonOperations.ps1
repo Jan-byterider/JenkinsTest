@@ -56,6 +56,8 @@ try {
     $shareJson = $jsonObj | ConvertTo-Json 
     write-host $shareJson
     Get-Location
+    $items = Get-ChildItem
+    write-host $items
     #Invoke-Command -Credential $cred -command { $using:shareJson | out-file -path resources\nasCleanupByRetentionDate.json -Force }
     #write-host 
     
