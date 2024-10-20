@@ -55,12 +55,12 @@ catch {
 try {
     $shareJson = $jsonObj | ConvertTo-Json 
     write-host $shareJson
-    Invoke-Command -Credential $cred -command { $using:shareJson | out-file -path $using:jsonFilePath -Force }
+    Invoke-Command -Credential $cred -command { $using:shareJson | out-file -path resources\nasCleanupByRetentionDate.json -Force }
     #write-host 
     
 }
 catch {
-    Write-Host "Error writing json $jsonFilePath2"
+    Write-Host "Error writing json resources\nasCleanupByRetentionDate.json"
     Write-host -f red "Encountered Error:"$_.Exception.Message
     throw $Error
     $_
