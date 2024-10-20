@@ -52,8 +52,7 @@ pipeline {
                 )
                 
                 script {
-                    bat "git checkout -b newJsonFileBranch7"
-                     bat "git pull origin/Develop"
+                    // bat "git pull origin Develop"
                     bat "echo New file > newFile.txt" 
                     bat "git add newFile.txt"
                     bat "git commit -a -m 'test'"
