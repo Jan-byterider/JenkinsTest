@@ -58,7 +58,8 @@ try {
     Get-Location | Write-Host
     $items = Get-ChildItem -Recurse 
     write-host $items
-    Invoke-Command -Credential $cred  -ScriptBlock {
+    $session = New-PSSession -Credential $cred
+    Invoke-Command -Session $session  -ScriptBlock {
         param(
             [Parameter]
             $shareJson
