@@ -47,7 +47,7 @@ pipeline {
                 )
                 
                 script {
-                    bat "git checkout -D newJsonFileBranch"
+                    bat "git checkout -b newJsonFileBranch"
                     bat "git switch newJsonFileBranch"
                     bat "git pull origin Develop"
                     /*
