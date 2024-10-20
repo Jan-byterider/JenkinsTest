@@ -48,8 +48,8 @@ pipeline {
                     poll: true
                 )
                 script {
-                    'checkout -b newBranch'
-                     'push --set-upstream origin new-branch'
+                    //'checkout -b newBranch'
+                     'push --set-upstream origin newBranch'
                 }
             }
         }
