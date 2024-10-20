@@ -56,6 +56,7 @@ pipeline {
                         println "Branch: ${newJsonFileBranch} doesn't exists yet. "
                     }
 
+                    bat ""
                     bat "git checkout -b newJsonFileBranch"
                     bat "git switch newJsonFileBranch"
                     bat "git fetch origin Develop"
@@ -63,7 +64,7 @@ pipeline {
                     powerShell('pwd')
                     try{
                         powerShell("${scriptlocation} ${params.sharePath} ${params.retentionDays} ${jsonFilePath} ${params.username} ${params.password}") 
-                        bat "git add jsonFilePath"
+                        bat "git add ${jsonFilePath}"
                         bat "git commit -a -m 'test'"
                         bat "git switch origin/Develop"
                         bat "git merge newJsonFileBranch" 

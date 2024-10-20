@@ -49,6 +49,7 @@ try {
 }
 catch {
     Write-Host "Error adding share to JSON object array list"
+    throw $Error
 }
 
 try {
