@@ -18,7 +18,7 @@ pipeline {
         stage('Git Checkout'){
             gitCheckout(
                 branch: "main",
-                url: "https://github.com/Jan-byterider/PSBackup.git"
+                url: "https://github.com/Jan-byterider/JenkinsTest.git"
             )
             dir('newBranch'){
                 checkout -b scm
