@@ -49,7 +49,7 @@ pipeline {
                     //push: true
                     
                 )
-                gitCheckout(url: "https://github.com/Jan-byterider/JenkinsTest.git",
+                checkout(url: "https://github.com/Jan-byterider/JenkinsTest.git",
                     branch: "newBranch")
                 script {
                     //'checkout -b newBranch'
