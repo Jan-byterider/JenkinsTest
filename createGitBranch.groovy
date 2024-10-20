@@ -23,7 +23,7 @@ pipeline {
                     )
             }
         } */
-        
+
         stage('Setup parameters') {
             steps {
                 script { 
@@ -43,10 +43,14 @@ pipeline {
             steps {
                 git(
                     url: "https://github.com/Jan-byterider/JenkinsTest.git",
-                    branch: "main",
+                    branch: "Develop",
                     changelog: true,
                     poll: true
                 )
+                script {
+                    checkout -b "newBranch"
+                }
+
         
             }
         }
