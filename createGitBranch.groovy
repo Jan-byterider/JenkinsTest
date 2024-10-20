@@ -52,18 +52,15 @@ pipeline {
                 )
                 
                 script {
-                    bat "git switch newJsonFileBranch7"
+                    bat "git switch newJsonFileBranch"
                     bat "git pull origin Develop"
                     bat "echo New file > newFile.txt" 
                     bat "git add newFile.txt"
                     bat "git commit -a -m 'test'"
                     bat "git switch origin/Develop"
-                    bat "git merge newJsonFileBranch7"
-                    //bat "git branch Develop"
-                    bat "git branch -D newJsonFileBranch7"
-                    bat "git branch -D newJsonFileBranch3"
-                    bat "git branch -D newJsonFileBranch2"
+                    bat "git merge newJsonFileBranch"
                     bat "git branch -D origin/newBranch"
+                    bat "git branch -D newJsonFileBranch"
                 }
             }
         }
