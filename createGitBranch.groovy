@@ -43,12 +43,12 @@ pipeline {
             steps {
                 git(
                     url: "https://github.com/Jan-byterider/JenkinsTest.git",
-                    branch: "Develop",
+                    branch: "newBranch",
                     changelog: true,
                     poll: true
                 )
                 script {
-                    'checkout -b newBranch'
+                    'checkout -b '
                 }
 
         
