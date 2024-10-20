@@ -49,13 +49,11 @@ pipeline {
                     //push: true
                     
                 )
-                step{
-                    gitCheckout
-                }
+                
                 script {
                     //'checkout -b newBranch'
                      'push --set-upstream origin newBranch'
-                }
+                     gitCheckout                }
             }
         }
     }
