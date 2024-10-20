@@ -52,7 +52,7 @@ $sharePaths90 = @(
     "\\sv-arg-nasc-p3.corporate.argenta.be\prd.ipaas\gtaia\poi\archive",
     "\\sv-arg-nasc-p3.corporate.argenta.be\prd.ipaas\gtaia\poi\archive\completed",
     "\\sv-arg-nasc-p3.corporate.argenta.be\prd.ipaas\gtaia\poi\archive\deprecated",
-"\\sv-arg-nasc-p3.corporate.argenta.be\prd.ipaas\gtaia\poi\archive\error"
+    "\\sv-arg-nasc-p3.corporate.argenta.be\prd.ipaas\gtaia\poi\archive\error"
 )
 
 

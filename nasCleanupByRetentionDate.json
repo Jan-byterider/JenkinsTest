@@ -1,0 +1,170 @@
+[
+  {
+    "Share": "\\\\sv-arg-nasc-v1.corporate.argenta.be\\val.ipaas\\gtaia\\poi\\in",
+    "retention": 30
+  },
+  {
+    "Share": "\\\\sv-arg-nasc-v1.corporate.argenta.be\\val.ipaas\\gtaia\\poi\\out",
+    "retention": 30
+  },
+  {
+    "Share": "\\\\sv-arg-nasc-v1.corporate.argenta.be\\val.ipaas\\gtaia\\poi\\processing",
+    "retention": 30
+  },
+  {
+    "Share": "\\\\sv-arg-nasc-a1.corporate.argenta.be\\acc.ipaas\\gtaia\\poi\\in",
+    "retention": 30
+  },
+  {
+    "Share": "\\\\sv-arg-nasc-a1.corporate.argenta.be\\acc.ipaas\\gtaia\\poi\\out",
+    "retention": 30
+  },
+  {
+    "Share": "\\\\sv-arg-nasc-a1.corporate.argenta.be\\acc.ipaas\\gtaia\\poi\\processing",
+    "retention": 30
+  },
+  {
+    "Share": "\\\\sv-arg-nasc-d1.corporate.argenta.be\\dvl.ipaas\\gtaia\\poi\\in",
+    "retention": 30
+  },
+  {
+    "Share": "\\\\sv-arg-nasc-d1.corporate.argenta.be\\dvl.ipaas\\gtaia\\poi\\out",
+    "retention": 30
+  },
+  {
+    "Share": "\\\\sv-arg-nasc-d1.corporate.argenta.be\\dvl.ipaas\\gtaia\\poi\\processing",
+    "retention": 30
+  },
+  {
+    "Share": "\\\\sv-arg-nasc-c1.corporate.argenta.be\\sic.ipaas\\gtaia\\poi\\in",
+    "retention": 30
+  },
+  {
+    "Share": "\\\\sv-arg-nasc-c1.corporate.argenta.be\\sic.ipaas\\gtaia\\poi\\out",
+    "retention": 30
+  },
+  {
+    "Share": "\\\\sv-arg-nasc-c1.corporate.argenta.be\\sic.ipaas\\gtaia\\poi\\processing",
+    "retention": 30
+  },
+  {
+    "Share": "\\\\sv-arg-nasc-s1.corporate.argenta.be\\sim.ipaas\\gtaia\\poi\\in",
+    "retention": 30
+  },
+  {
+    "Share": "\\\\sv-arg-nasc-s1.corporate.argenta.be\\sim.ipaas\\gtaia\\poi\\out",
+    "retention": 30
+  },
+  {
+    "Share": "\\\\sv-arg-nasc-s1.corporate.argenta.be\\sim.ipaas\\gtaia\\poi\\processing",
+    "retention": 30
+  },
+  {
+    "Share": "\\\\sv-arg-nasc-p3.corporate.argenta.be\\prd.ipaas\\gtaia\\poi\\in",
+    "retention": 30
+  },
+  {
+    "Share": "\\\\sv-arg-nasc-p3.corporate.argenta.be\\prd.ipaas\\gtaia\\poi\\out",
+    "retention": 30
+  },
+  {
+    "Share": "\\\\sv-arg-nasc-p3.corporate.argenta.be\\prd.ipaas\\gtaia\\poi\\processing",
+    "retention": 30
+  },
+  {
+    "Share": "\\\\sv-arg-nasc-v1.corporate.argenta.be\\val.ipaas\\gtaia\\poi\\archive",
+    "retention": 90
+  },
+  {
+    "Share": "\\\\sv-arg-nasc-v1.corporate.argenta.be\\val.ipaas\\gtaia\\poi\\archive\\completed",
+    "retention": 90
+  },
+  {
+    "Share": "\\\\sv-arg-nasc-v1.corporate.argenta.be\\val.ipaas\\gtaia\\poi\\archive\\deprecated",
+    "retention": 90
+  },
+  {
+    "Share": "\\\\sv-arg-nasc-v1.corporate.argenta.be\\val.ipaas\\gtaia\\poi\\archive\\error",
+    "retention": 90
+  },
+  {
+    "Share": "\\\\sv-arg-nasc-a1.corporate.argenta.be\\acc.ipaas\\gtaia\\poi\\archive",
+    "retention": 90
+  },
+  {
+    "Share": "\\\\sv-arg-nasc-a1.corporate.argenta.be\\acc.ipaas\\gtaia\\poi\\archive\\completed",
+    "retention": 90
+  },
+  {
+    "Share": "\\\\sv-arg-nasc-a1.corporate.argenta.be\\acc.ipaas\\gtaia\\poi\\archive\\deprecated",
+    "retention": 90
+  },
+  {
+    "Share": "\\\\sv-arg-nasc-a1.corporate.argenta.be\\acc.ipaas\\gtaia\\poi\\archive\\error",
+    "retention": 90
+  },
+  {
+    "Share": "\\\\sv-arg-nasc-d1.corporate.argenta.be\\dvl.ipaas\\gtaia\\poi\\archive",
+    "retention": 90
+  },
+  {
+    "Share": "\\\\sv-arg-nasc-d1.corporate.argenta.be\\dvl.ipaas\\gtaia\\poi\\archive\\completed",
+    "retention": 90
+  },
+  {
+    "Share": "\\\\sv-arg-nasc-d1.corporate.argenta.be\\dvl.ipaas\\gtaia\\poi\\archive\\deprecated",
+    "retention": 90
+  },
+  {
+    "Share": "\\\\sv-arg-nasc-d1.corporate.argenta.be\\dvl.ipaas\\gtaia\\poi\\archive\\error",
+    "retention": 90
+  },
+  {
+    "Share": "\\\\sv-arg-nasc-c1.corporate.argenta.be\\sic.ipaas\\gtaia\\poi\\archive",
+    "retention": 90
+  },
+  {
+    "Share": "\\\\sv-arg-nasc-c1.corporate.argenta.be\\sic.ipaas\\gtaia\\poi\\archive\\completed",
+    "retention": 90
+  },
+  {
+    "Share": "\\\\sv-arg-nasc-c1.corporate.argenta.be\\sic.ipaas\\gtaia\\poi\\archive\\deprecated",
+    "retention": 90
+  },
+  {
+    "Share": "\\\\sv-arg-nasc-c1.corporate.argenta.be\\sic.ipaas\\gtaia\\poi\\archive\\error",
+    "retention": 90
+  },
+  {
+    "Share": "\\\\sv-arg-nasc-s1.corporate.argenta.be\\sim.ipaas\\gtaia\\poi\\archive",
+    "retention": 90
+  },
+  {
+    "Share": "\\\\sv-arg-nasc-s1.corporate.argenta.be\\sim.ipaas\\gtaia\\poi\\archive\\completed",
+    "retention": 90
+  },
+  {
+    "Share": "\\\\sv-arg-nasc-s1.corporate.argenta.be\\sim.ipaas\\gtaia\\poi\\archive\\deprecated",
+    "retention": 90
+  },
+  {
+    "Share": "\\\\sv-arg-nasc-s1.corporate.argenta.be\\sim.ipaas\\gtaia\\poi\\archive\\error",
+    "retention": 90
+  },
+  {
+    "Share": "\\\\sv-arg-nasc-p3.corporate.argenta.be\\prd.ipaas\\gtaia\\poi\\archive",
+    "retention": 90
+  },
+  {
+    "Share": "\\\\sv-arg-nasc-p3.corporate.argenta.be\\prd.ipaas\\gtaia\\poi\\archive\\completed",
+    "retention": 90
+  },
+  {
+    "Share": "\\\\sv-arg-nasc-p3.corporate.argenta.be\\prd.ipaas\\gtaia\\poi\\archive\\deprecated",
+    "retention": 90
+  },
+  {
+    "Share": "\\\\sv-arg-nasc-p3.corporate.argenta.be\\prd.ipaas\\gtaia\\poi\\archive\\error",
+    "retention": 90
+  }
+]
