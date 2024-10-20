@@ -56,7 +56,7 @@ pipeline {
 
                     bat "git checkout -b newJsonFileBranch"
                     bat "git switch newJsonFileBranch"
-                    bat "git pull origin/Develop"
+                    bat "git fetch origin Develop"
                     /*
                     bat "echo New file > newFile.txt" 
                     bat "git add newFile.txt"
@@ -83,6 +83,9 @@ pipeline {
                 
                 script {
                     bat "git switch newJsonFileBranch"
+                    String scriptlocation = 'resources\\cleanupFiles.ps1'
+                    powerShell('pwd')
+                    powerShell("${scriptlocation} ${params.sharePath} ${params.retentionDays} ${jsonFilePath}")    
                     bat "git add jsonFilePath"
                     bat "git commit -a -m 'test'"
                     bat "git switch origin/Develop"
