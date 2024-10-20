@@ -46,6 +46,7 @@ pipeline {
                     branch: "newBranch",
                     changelog: true,
                     poll: true
+                    upstream: true
                     //push: true
                     
                 )
