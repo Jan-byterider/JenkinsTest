@@ -15,12 +15,15 @@ pipeline {
         timestamps()
     }
     stages {
-        stage('Git Checkout'){
-            gitCheckout(
-                branch: "main",
-                url: "https://github.com/Jan-byterider/PSBackup.git"
-            )
-        }
+        /* stage('Git Checkout'){
+            steps {
+                    git(gitCheckout(
+                        branch: "main",
+                        url: "https://github.com/Jan-byterider/PSBackup.git"
+                    )
+            }
+        } */
+
         stage('Setup parameters') {
             steps {
                 script { 
@@ -37,32 +40,29 @@ pipeline {
             }
         }
         stage("Clone Git Repository") {
-                steps {
-                    git(
-                        url: "https://github.com/Jan-byterider/JenkinsTest.git",
-                        branch: "main",
-                        changelog: true,
-                        poll: true
-                    )
-                }
-        }        
-        stage('Hello World') {
             steps {
+                git(
+                    url: "https://github.com/Jan-byterider/JenkinsTest.git",
+                    branch: "Develop",
+                    changelog: true,
+                    poll: true
+                    //upstream: true
+                    //push: true
+                    
+                )
+                
                 script {
-                    println('Hello, World')
-                }
-            }
-        }
-        stage('Delete downloaded files') {
-            steps {
-                script {
-                    String scriptlocation = 'resources\\cleanupFiles.ps1'
-                    powerShell('pwd')
-                    powerShell("${scriptlocation} ${params.pathToClean} ${params.hostname} ${params.dryRun} ${params.username} ${params.password}")    
+                    bat "git switch newJsonFileBranch"
+                    bat "git pull origin Develop"
+                    bat "echo New file > newFile.txt" 
+                    bat "git add newFile.txt"
+                    bat "git commit -a -m 'test'"
+                    bat "git switch origin/Develop"
+                    bat "git merge newJsonFileBranch"
+                    bat "git branch -D origin/newBranch"
+                    bat "git branch -D newJsonFileBranch"
                 }
             }
         }
     }
 }
-
-
