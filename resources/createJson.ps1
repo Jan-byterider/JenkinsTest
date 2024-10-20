@@ -75,7 +75,8 @@ foreach ($line in $sharePaths90)
     $shares.add($tempShareObject) | Out-Null
 }
 
-$shareJson = $shares | ConvertTo-Json | out-file -path .\nasCleanupByRetentionDate.json
+$shareJson = $shares | ConvertTo-Json 
+$shareJson | out-file -path .\nasCleanupByRetentionDate.json
 
 $jsonObj = ConvertFrom-Json $shareJson
 $jsonObj
