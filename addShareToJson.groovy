@@ -87,7 +87,12 @@ pipeline {
                     bat "git switch newJsonFileBranch"
                     String scriptlocation = "resources\\jsonOperations.ps1"
                     powerShell('pwd')
-                    powerShell("${scriptlocation} ${params.sharePath} ${params.retentionDays} ${jsonFilePath} ${params.username} ${params.password}")    
+                    try{
+                        powerShell("${scriptlocation} ${params.sharePath} ${params.retentionDays} ${jsonFilePath} ${params.username} ${params.password}")    
+                    } catch (err) {
+                        println "catching error ${err} "
+                    }
+
                     bat "git add jsonFilePath"
                     bat "git commit -a -m 'test'"
                     bat "git switch origin/Develop"

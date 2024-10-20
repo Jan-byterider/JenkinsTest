@@ -52,12 +52,12 @@ catch {
 
 try {
     $shareJson = $jsonObj | ConvertTo-Json 
-    Invoke-Command -Credential $cred -command { $using:shareJson | out-file -path $using:jsonFilePath2 -Force }
+    Invoke-Command -Credential $cred -command { $using:shareJson | out-file -path $using:jsonFilePath -Force }
     write-host 
     
 }
 catch {
-    Write-Host "Error writing json $jsonFilePath"
+    Write-Host "Error writing json $jsonFilePath2"
     $Error[0]
     $_
 }
