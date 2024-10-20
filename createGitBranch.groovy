@@ -23,5 +23,31 @@ pipeline {
                     )
             }
         }
+        stage('Setup parameters') {
+            steps {
+                script { 
+                    properties([
+                        parameters([
+                            string(name: 'pathToClean', defaultValue: 'Downloads', description: 'all childitems > 10 days will be deleted'),
+                            string(name: 'hostname', defaultValue: 'target hostname', description: 'target hostname'),
+                            string(name: 'username' ,defaultValue: 'email address', description: 'username' ),
+                            string(name: 'password', defaultValue: '', description: 'password'),
+                            booleanParam(name: 'dryRun', defaultValue: true , description: 'actions are not executed when false')
+                        ])
+                    ])
+                }
+            }
+        }
+        stage("Clone Git Repository") {
+            steps {
+                git(
+                    url: "https://github.com/Jan-byterider/JenkinsTest.git",
+                    branch: "main",
+                    changelog: true,
+                    poll: true
+                )
+        
+            }
+        }
     }
 }
