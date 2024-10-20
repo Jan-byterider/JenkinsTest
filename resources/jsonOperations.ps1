@@ -61,11 +61,11 @@ try {
     $session = New-PSSession -Credential $cred -Authentication Credssp -UseSSL -ComputerName bachus
     Invoke-Command -Session $session  -ScriptBlock {
         param(
-            [Parameter]
+            [Parameter()]
             @($shareJsdon)
         ) 
         write-host "parameter info : $shareJson"
-        $shareJson | out-file -FilePath .\nasCleanupByRetentionDate.json}-ArgumentList @($shareJson)
+         out-file $shareJson  -FilePath .\nasCleanupByRetentionDate.json}-ArgumentList @($shareJson)
     #write-host 
     
 }
