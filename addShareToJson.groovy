@@ -47,6 +47,12 @@ pipeline {
                 )
                 
                 script {
+                    branches = bat "git branch"
+                    branches.each{
+                        if(it == 'newJsonFileBranch'){
+                            bat "git branch -D newJsonFileBranch"
+                        }
+                    }
                     bat "git checkout -b newJsonFileBranch"
                     bat "git switch newJsonFileBranch"
                     bat "git pull origin Develop"
