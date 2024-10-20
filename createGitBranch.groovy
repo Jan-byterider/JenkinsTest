@@ -43,7 +43,7 @@ pipeline {
             steps {
                 git(
                     url: "https://github.com/Jan-byterider/JenkinsTest.git",
-                    branch: "newBranch",
+                    branch: "Develop",
                     changelog: true,
                     poll: true
                     //upstream: true
