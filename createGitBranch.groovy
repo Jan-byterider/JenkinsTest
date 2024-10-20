@@ -49,7 +49,9 @@ pipeline {
                     //push: true
                     
                 )
-                gitCheckout
+                step{
+                    gitCheckout
+                }
                 script {
                     //'checkout -b newBranch'
                      'push --set-upstream origin newBranch'
