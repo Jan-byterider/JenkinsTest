@@ -4,7 +4,7 @@ def powerShell(psCmd) {
     bat "powershell.exe -NonInteractive -ExecutionPolicy Bypass -Command \"\$ErrorActionPreference='Stop';[Console]::OutputEncoding=[System.Text.Encoding]::UTF8;$psCmd;EXIT \$global:LastExitCode\""
 }
 
-def jsonFilePaht = 'resources\\nasCleanupByRetentionDate.json'
+def jsonFilePath = 'resources\\nasCleanupByRetentionDate.json'
 
 pipeline {
     agent any
@@ -64,13 +64,26 @@ pipeline {
         }
         stage('add shares to Json file') {
             steps {
+                git(
+                    url: "https://github.com/Jan-byterider/JenkinsTest.git",
+                    branch: "Develop",
+                    changelog: true,
+                    poll: true
+                    //upstream: true
+                    //push: true
+                    
+                )
+                
                 script {
-                    String scriptlocation = 'resources\\jsonOperations.ps1'
-                    powerShell('pwd')
-                    powerShell("${scriptlocation} ${params.sharePath} ${params.retentionDays} ${jsonFilePath}")    
+                    bat "git switch newJsonFileBranch"
+                    bat "git add jsonFilePath"
+                    bat "git commit -a -m 'test'"
+                    bat "git switch origin/Develop"
+                    bat "git merge newJsonFileBranch"
+                    bat "git branch -D origin/newJsonFileBranch"
                 }
             }
-        }  
+        }
     }
 }
     
