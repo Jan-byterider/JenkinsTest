@@ -47,12 +47,13 @@ pipeline {
                 )
                 
                 script {
-                    branches = bat "git branch"
-                    branches.each{
-                        if(it == 'newJsonFileBranch'){
-                            bat "git branch -D newJsonFileBranch"
-                        }
+                    
+                    try{
+                        bat "git branch -D newJsonFileBranch"
+                    } catch (err) {
+                        println "Branch: ${newJsonFileBranch} doesn't exists yet. "
                     }
+
                     bat "git checkout -b newJsonFileBranch"
                     bat "git switch newJsonFileBranch"
                     bat "git pull origin Develop"
