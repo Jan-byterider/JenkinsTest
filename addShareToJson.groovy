@@ -64,7 +64,7 @@ pipeline {
                     }
                     
                     bat "git fetch origin develop"
-                    bat "git branch -p newJsonFileBranc --track origin/develop"
+                    bat "gitgit checkout -b newJsonFileBranc --track origin/develop"
                     bat "git remote -v"
                     
                     
