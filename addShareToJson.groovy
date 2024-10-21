@@ -66,7 +66,7 @@ pipeline {
                     bat "git branch"
                     
                     bat "git fetch origin"
-                    bat "git checkout -b newJsonFileBranch origin/develop"
+                    bat "git switch origin/develop"
                     //bat "git switch newJsonFileBranch"
 
                     String scriptlocation = "resources\\jsonOperations.ps1"
@@ -80,7 +80,7 @@ pipeline {
                         bat "git add ."
                         bat "git commit -a -m 'test'"
                         bat "git fetch --all"
-                        bat "git push -u origin develop"
+                        //bat "git push -u origin develop"
                         //bat "git merge newJsonFileBranch"
                         //bat "git checkout origin/develop"
                         //bat "git switch temp"
