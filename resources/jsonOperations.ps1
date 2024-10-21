@@ -28,6 +28,7 @@ try {
     $jsonObj = [System.Collections.ArrayList]::new()
     [System.Collections.ArrayList]$jsonObj = ConvertFrom-Json $jsonFileContent
     Write-Host $jsonObj
+    $shareJson =  ConvertTo-Json -InputObject $jsonObj
 } catch {
     Write-Host "Error loading json $jsonFilePath"
 }
