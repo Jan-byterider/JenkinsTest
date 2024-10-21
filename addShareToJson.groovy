@@ -71,7 +71,8 @@ pipeline {
                         bat "git commit -a -m 'test'"
                         bat "git fetch --all"
                         bat "git switch Develop"
-                        bat "git merge newJsonFileBranch" 
+                        bat "git merge newJsonFileBranch"
+                        bat "git push origin Develop" 
                         bat "git branch -D newJsonFileBranch"
                         bat "dir /s"  
                         } catch (err2) {
