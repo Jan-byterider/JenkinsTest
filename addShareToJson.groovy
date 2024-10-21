@@ -65,7 +65,7 @@ pipeline {
                     
                     bat "git branch"
                     
-                    bat "git fetch origin/develop"
+                    bat "git fetch origin develop"
                     //bat "git switch origin/develop"
                     bat "git checkout origin develop"
 
