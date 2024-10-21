@@ -9,16 +9,18 @@ param (
     [Parameter(Mandatory=$true)]
     [string]
     $jsonFilePath,
-    [Parameter(Mandatory=$true)]
+    [Parameter(Mandatory=$false)]
     [string]
     $username,
-    [Parameter(Mandatory=$true)]
+    [Parameter(Mandatory=$false)]
     $secret
 )
 
 write-host "Powershell script started - SharePath: $sharePath retentionDays: $retentionDays jsonFilePath: $jsonFilePath username: $username secret: $secret"
 $secret = ConvertTo-SecureString -String $secret -AsPlainText -Force
-[pscredential]$cred = New-Object System.Management.Automation.PSCredential ($userName, $secret)
+if($username -AND $secret ){
+     [pscredential]$cred = New-Object System.Management.Automation.PSCredential ($userName, $secret)
+}
 $jsonFilePath2 = $jsonFilePath.Replace('.json','_new.json')
 $jsonFilePath2
 
