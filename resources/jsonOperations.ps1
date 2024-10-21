@@ -57,6 +57,8 @@ try {
     $shareJson =  ConvertTo-Json -InputObject $jsonObj
     write-host "shareJson: $shareJson"
     $shareJson | out-file  -FilePath $jsonFilePath
+     
+    <#
     $jsonFileContent = Get-Content -Raw $jsonFilePath
     $jsonObj = [System.Collections.ArrayList]::new()
     [System.Collections.ArrayList]$jsonObj = ConvertFrom-Json $jsonFileContent
@@ -67,6 +69,7 @@ try {
     write-host $items
     
     $session = New-PSSession -Credential $cred -Authentication Credssp -UseSSL -ComputerName bachus
+   
     Invoke-Command -Session $session  -ScriptBlock {
         param(
             [Parameter(Mandatory)]
@@ -76,7 +79,7 @@ try {
         ) 
         write-host "parameter info : $shareJson"
         $shareJson | out-file  -FilePath $jsonFilePath}-ArgumentList ($shareJson,$jsonFilePath)
-    #write-host 
+    #write-host #>
     
 }
 catch {
