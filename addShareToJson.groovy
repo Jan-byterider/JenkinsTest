@@ -80,17 +80,17 @@ pipeline {
                         bat "git add ."
                         bat "git commit -a -m 'test'"
                         bat "git fetch --all"
-                        //bat "git push -u origin develop"
+                        bat "git push -u origin develop"
                         //bat "git merge newJsonFileBranch"
                         //bat "git checkout origin/develop"
                         //bat "git switch temp"
                         //bat "git switch -c origin/newJsonFileBranch"
                        
-                        sshagent(credentials : ['gitSSH']){
+                        /* sshagent(credentials : ['gitSSH']){
                             //bats "ssh git branch"
                             //bat ("git push -u temp:origin/newJsonFileBranch")
                             bat 'ssh -T github.com/Jan-byterider/JenkinsTest.git'
-                        }
+                        } */
                         
                         bat "git merge origin newJsonFileBranch"
 
