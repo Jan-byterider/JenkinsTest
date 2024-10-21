@@ -81,7 +81,7 @@ pipeline {
                         //bat "git add resources\\nasCleanupByRetentionDate_new.json"
                         bat "git add ."
                         bat "git commit -a -m 'test'"
-                        bat "git fetch upstream"
+                        //bat "git fetch upstream"
                         bat "git status"
                         //bat "git h"
                         //bat "git merge newJsonFileBranch"
