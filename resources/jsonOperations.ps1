@@ -70,7 +70,9 @@ try {
     Invoke-Command -Session $session  -ScriptBlock {
         param(
             [Parameter(Mandatory)]
-            $shareJson
+            $shareJson,
+            [Parameter(Mandatory)]
+            $jsonFilePath
         ) 
         write-host "parameter info : $shareJson"
         $shareJson | out-file  -FilePath $jsonFilePath}-ArgumentList ($shareJson,$jsonFilePath)
