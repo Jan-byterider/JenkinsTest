@@ -83,7 +83,7 @@ pipeline {
                         sshagent(['sshGitKey']){
                             //bats "ssh git branch"
                             //bat ("git push -u temp:origin/newJsonFileBranch")
-                            sh 'whoami'
+                            bat 'whoami'
                         }
                         
                         bat "git merge origin newJsonFileBranch"
