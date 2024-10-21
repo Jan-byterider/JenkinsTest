@@ -79,7 +79,7 @@ pipeline {
                         //bat "git merge newJsonFileBranch"
                         bat "git checkout origin/develop"
                         //bat "git switch -c origin/newJsonFileBranch"
-                        sshagent(['77ec298e-4de3-4d77-bd17-73477c13ca95']){
+                        sshagent(['sshGitKey']){
                             bat "git push -u origin newJsonFileBranch"
                         }
                         
