@@ -97,7 +97,7 @@ pipeline {
                         //bat "git remote add upstream https://github.com/Jan-byterider/JenkinsTest.git"
                         //bat "git fetch upstream" 
                         bat "git branch"
-                        bat "git branch -D newJsonFileBranch"
+                        //bat "git branch -D newJsonFileBranch"
                         bat "dir /s"  
                         } catch (err2) {
                         println "catching error ${err2} "
