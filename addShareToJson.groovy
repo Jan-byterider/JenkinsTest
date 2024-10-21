@@ -73,9 +73,9 @@ pipeline {
                         bat "git checkout origin/Develop"
                         bat "git merge newJsonFileBranch" 
                         bat "git branch -D newJsonFileBranch"  
-                        } catch (err) {
-                        println "catching error ${err} "
-                        throw err
+                        } catch (err2) {
+                        println "catching error ${err2} "
+                        throw err2
                     }
                     /*
                     bat "echo New file > newFile.txt" 
