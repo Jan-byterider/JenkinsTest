@@ -56,7 +56,7 @@ pipeline {
                         println "Branch: newJsonFileBranch doesn't exists yet. "
                     }
 
-                    bat ""
+                    bat "git branch"
                     
                     bat "git fetch origin"
                     bat "git checkout -b newJsonFileBranch origin/Develop"
