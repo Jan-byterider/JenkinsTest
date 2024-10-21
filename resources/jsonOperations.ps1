@@ -56,8 +56,8 @@ catch {
 try {
     $shareJson =  ConvertTo-Json -InputObject $jsonObj
     write-host "shareJson: $shareJson"
-    $shareJson | out-file  -FilePath .\nasCleanupByRetentionDate_new.json
-    $jsonFileContent = Get-Content -Raw .\nasCleanupByRetentionDate_new.json
+    $shareJson | out-file  -FilePath $jsonFilePath
+    $jsonFileContent = Get-Content -Raw $jsonFilePath
     $jsonObj = [System.Collections.ArrayList]::new()
     [System.Collections.ArrayList]$jsonObj = ConvertFrom-Json $jsonFileContent
     write-host $jsonObj
@@ -73,7 +73,7 @@ try {
             $shareJson
         ) 
         write-host "parameter info : $shareJson"
-        $shareJson | out-file  -FilePath .\nasCleanupByRetentionDate_new.json}-ArgumentList $shareJson
+        $shareJson | out-file  -FilePath $jsonFilePath}-ArgumentList $shareJson
     #write-host 
     
 }
