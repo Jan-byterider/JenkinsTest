@@ -92,11 +92,11 @@ pipeline {
                             bat 'ssh -T github.com/Jan-byterider/JenkinsTest.git'
                         } */
                         
-                        bat "git merge origin newJsonFileBranch"
+                        //bat "git merge origin newJsonFileBranch"
 
                         //bat "git remote add upstream https://github.com/Jan-byterider/JenkinsTest.git"
                         //bat "git fetch upstream" 
-                        //bat "git switch upstream"
+                        bat "git branch"
                         bat "git branch -D newJsonFileBranch"
                         bat "dir /s"  
                         } catch (err2) {
