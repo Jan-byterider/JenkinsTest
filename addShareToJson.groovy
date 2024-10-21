@@ -78,7 +78,7 @@ pipeline {
                         //bat "git push -u origin develop"
                         //bat "git merge newJsonFileBranch"
                         bat "git checkout origin/develop"
-                        bat "git switch -c temp"
+                        bat "git switch temp"
                         //bat "git switch -c origin/newJsonFileBranch"
                         sshagent(['sshGitKey']){
                             //bats "ssh git branch"
@@ -95,7 +95,7 @@ pipeline {
                         } catch (err2) {
                         println "catching error ${err2} "
                         throw err2
-                    }
+                        }
                     /*
                     bat "echo New file > newFile.txt" 
                     bat "git add newFile.txt"
