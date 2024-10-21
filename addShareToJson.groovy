@@ -40,7 +40,7 @@ pipeline {
             steps {
                 git(
                     url: "https://github.com/Jan-byterider/JenkinsTest.git",
-                    branch: "Develop",
+                    branch: "develop",
                     changelog: true,
                     poll: true
                     //upstream: true
@@ -54,12 +54,16 @@ pipeline {
                         bat "git branch -D newJsonFileBranch"
                     } catch (err) {
                         println "Branch: newJsonFileBranch doesn't exists yet. "
+                        
+                         bat "git branch -D Develop"
+                    } /*catch (err) {
+                        println "Branch: Develop doesn't exists yet. "
                     }
-
+                    */
                     bat "git branch"
                     
                     bat "git fetch origin"
-                    bat "git checkout -b newJsonFileBranch origin/Develop"
+                    bat "git checkout -b newJsonFileBranch origin/develop"
                     //bat "git switch newJsonFileBranch"
 
                     String scriptlocation = "resources\\jsonOperations.ps1"
@@ -70,7 +74,7 @@ pipeline {
                         bat "git add ."
                         bat "git commit -a -m 'test'"
                         bat "git fetch --all"
-                        bat "git push origin newJsonFileBranch"
+                        bat "git push -u origin newJsonFileBranch"
                         //bat "git merge newJsonFileBranch"
                         bat "git checkout origin/develop"
                         //bat "git switch -c origin/newJsonFileBranch"
@@ -89,7 +93,7 @@ pipeline {
                     bat "echo New file > newFile.txt" 
                     bat "git add newFile.txt"
                     bat "git commit -a -m 'test'"
-                    bat "git switch origin/Develop"
+                    bat "git switch origin/develop"
                     bat "git merge newJsonFileBranch"
                     bat "git branch -D origin/newBranch"
                     bat "git branch -D newJsonFileBranch"
