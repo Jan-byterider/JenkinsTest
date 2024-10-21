@@ -72,7 +72,7 @@ pipeline {
                         bat "git fetch --all"
                         bat "git checkout origin/Develop"
                         bat "git merge newJsonFileBranch" 
-                        bat "git branch -D origin newJsonFileBranch"  
+                        bat "git branch -D newJsonFileBranch"  
                         } catch (err) {
                         println "catching error ${err} "
                         throw err
