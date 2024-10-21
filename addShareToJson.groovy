@@ -80,6 +80,7 @@ pipeline {
                         bat "git add ."
                         bat "git commit -a -m 'test'"
                         bat "git fetch --all"
+                        bat "git status"
                         //bat "git push -u origin develop"
                         //bat "git merge newJsonFileBranch"
                         //bat "git checkout origin/develop"
@@ -97,7 +98,7 @@ pipeline {
                         //bat "git remote add upstream https://github.com/Jan-byterider/JenkinsTest.git"
                         //bat "git fetch upstream" 
                         bat "git branch"
-                        //bat "git branch -D newJsonFileBranch"
+                        bat ""
                         bat "dir"  
                         } catch (err2) {
                         println "catching error ${err2} "
