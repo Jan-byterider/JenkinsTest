@@ -64,6 +64,7 @@ pipeline {
                     }
                     
                     bat "git branch"
+                    bat "git branch -r"
                     
                     bat "git fetch origin develop"
                     //bat "git switch origin/develop"
