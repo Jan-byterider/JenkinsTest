@@ -4,7 +4,7 @@ param (
     [string]
     $sharePath,
     [Parameter(Mandatory=$true)]
-    [string]
+    [String]
     $retentionDays,
     [Parameter(Mandatory=$true)]
     [string]
@@ -20,7 +20,7 @@ write-host "Powershell script started - SharePath: $sharePath retentionDays: $re
 
 if($username -AND $secret ){
      $secret = ConvertTo-SecureString -String $secret -AsPlainText -Force
-     [pscredential]$cred = New-Object System.Management.Automation.PSCredential ($userName, $secret)
+     $cred = New-Object System.Management.Automation.PSCredential ($userName, $secret)
 }
 $jsonFilePath2 = $jsonFilePath.Replace('.json','_new.json')
 $jsonFilePath2
