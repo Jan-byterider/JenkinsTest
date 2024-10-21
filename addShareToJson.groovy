@@ -85,13 +85,13 @@ pipeline {
                         //bat "git checkout origin/develop"
                         //bat "git switch temp"
                         //bat "git switch -c origin/newJsonFileBranch"
-                       /*
+                       
                         sshagent(credentials : ['gitSSH']){
                             //bats "ssh git branch"
                             //bat ("git push -u temp:origin/newJsonFileBranch")
                             bat 'ssh -T github.com/Jan-byterider/JenkinsTest.git'
                         }
-                        */
+                        
                         bat "git merge origin newJsonFileBranch"
 
                         //bat "git remote add upstream https://github.com/Jan-byterider/JenkinsTest.git"
