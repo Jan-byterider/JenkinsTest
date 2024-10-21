@@ -79,7 +79,10 @@ pipeline {
                         //bat "git merge newJsonFileBranch"
                         bat "git checkout origin/develop"
                         //bat "git switch -c origin/newJsonFileBranch"
-                        bat "git push -u origin newJsonFileBranch"
+                        sshAgent(['77ec298e-4de3-4d77-bd17-73477c13ca95']){
+                            bat "git push -u origin newJsonFileBranch"
+                        }
+                        
                         bat "git merge origin newJsonFileBranch"
 
                         //bat "git remote add upstream https://github.com/Jan-byterider/JenkinsTest.git"
