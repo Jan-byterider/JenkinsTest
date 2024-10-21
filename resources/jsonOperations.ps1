@@ -65,7 +65,7 @@ try {
     Get-Location | Write-Host
     $items = Get-ChildItem -Recurse 
     write-host $items
-    <#
+    
     $session = New-PSSession -Credential $cred -Authentication Credssp -UseSSL -ComputerName bachus
     Invoke-Command -Session $session  -ScriptBlock {
         param(
@@ -75,7 +75,7 @@ try {
         write-host "parameter info : $shareJson"
         $shareJson | out-file  -FilePath .\nasCleanupByRetentionDate_new.json}-ArgumentList $shareJson
     #write-host 
-    #>
+    
 }
 catch {
     Write-Host "Error writing json ..\nasCleanupByRetentionDate.json"
