@@ -73,7 +73,7 @@ pipeline {
                         bat "git switch Develop"
                         bat "git merge newJsonFileBranch" 
                         bat "git branch -D newJsonFileBranch"
-                        bat "dir"  
+                        bat "dir /s"  
                         } catch (err2) {
                         println "catching error ${err2} "
                         throw err2
