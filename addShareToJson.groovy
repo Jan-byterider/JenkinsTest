@@ -69,7 +69,8 @@ pipeline {
                         //bat "git add resources\\nasCleanupByRetentionDate_new.json"
                         bat "git add ."
                         bat "git commit -a -m 'test'"
-                        bat "git switch origin/Develop"
+                        bat "git fetch --all"
+                        bat "git checkout origin/Develop"
                         bat "git merge newJsonFileBranch" 
                         bat "git branch -D origin newJsonFileBranch"  
                         } catch (err) {
