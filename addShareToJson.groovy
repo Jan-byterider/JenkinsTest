@@ -41,7 +41,7 @@ pipeline {
             steps {
                 git(
                     url: "https://github.com/Jan-byterider/JenkinsTest.git",
-                    credentialsId: 'gitSSH',
+                    credentialsId: 'newGit2',
                     branch: "develop",
                     changelog: true,
                     poll: true
