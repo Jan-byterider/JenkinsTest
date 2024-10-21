@@ -5,7 +5,7 @@ def powerShell(psCmd) {
 }
 
 //def jsonFilePath = "resources\\nasCleanupByRetentionDate.json"
-def jsonFilePath "C:\git\JenkinsTest\resources\nasCleanupByRetentionDate.json"
+def jsonFilePath "C:\\git\\JenkinsTest\\resources\\nasCleanupByRetentionDate.json"
 
 pipeline {
     agent any
