@@ -54,10 +54,10 @@ pipeline {
                     
                     try{
                         bat "path=c:\\Program Files\\git\\usr\\bin;%path%"
-                        //bat "git branch -D newJsonFileBranch"
+                        bat "git branch -D newJsonFileBranch"
                     } catch (err) {
                         println "Branch: newJsonFileBranch doesn't exists yet. "
-                        
+                                bat "git branch -D origin/newJsonFileBranch"
                          bat "git branch -D develop"
                     } catch (err) {
                         println "Branch: Develop doesn't exists yet. "
