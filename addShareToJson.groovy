@@ -41,7 +41,7 @@ pipeline {
             steps {
                 git(
                     url: "https://github.com/Jan-byterider/JenkinsTest.git",
-                    credentialsId: 'gitSSH',
+                    credentialsId: 'newGit2',
                     branch: "develop",
                     changelog: true,
                     poll: true
@@ -57,17 +57,19 @@ pipeline {
                         bat "git branch -D newJsonFileBranch"
                     } catch (err) {
                         println "Branch: newJsonFileBranch doesn't exists yet. "
-                        
-                         bat "git branch -D Develop"
-                    } /*catch (err) {
+                                bat "git branch -D origin/newJsonFileBranch"
+                         bat "git branch -D develop"
+                    } catch (err) {
                         println "Branch: Develop doesn't exists yet. "
                     }
-                    */
-                    bat "git branch"
                     
-                    bat "git fetch origin"
-                    bat "git checkout -b newJsonFileBranch origin/develop"
-                    //bat "git switch newJsonFileBranch"
+                    bat "git fetch origin develop"
+                    bat "git checkout -b newJsonFileBranch --track origin/develop"
+                    bat "git remote -v"
+                    
+                    
+                    //bat "git switch origin/develop"
+                    //bat "git checkout origin develop"
 
                     String scriptlocation = "resources\\jsonOperations.ps1"
                     powerShell('pwd')
@@ -79,26 +81,27 @@ pipeline {
                         //bat "git add resources\\nasCleanupByRetentionDate_new.json"
                         bat "git add ."
                         bat "git commit -a -m 'test'"
-                        bat "git fetch --all"
-                        //bat "git push -u origin develop"
+                        //bat "git fetch upstream"
+                        bat "git status"
+                        //bat "git h"
                         //bat "git merge newJsonFileBranch"
                         //bat "git checkout origin/develop"
                         //bat "git switch temp"
                         //bat "git switch -c origin/newJsonFileBranch"
                        
-                        sshagent(credentials : ['gitSSH']){
+                        /* sshagent(credentials : ['gitSSH']){
                             //bats "ssh git branch"
                             //bat ("git push -u temp:origin/newJsonFileBranch")
                             bat 'ssh -T github.com/Jan-byterider/JenkinsTest.git'
-                        }
+                        } */
                         
-                        bat "git merge origin newJsonFileBranch"
+                        bat "git merge origin/develop newJsonFileBranch"
 
                         //bat "git remote add upstream https://github.com/Jan-byterider/JenkinsTest.git"
                         //bat "git fetch upstream" 
-                        //bat "git switch upstream"
-                        bat "git branch -D newJsonFileBranch"
-                        bat "dir /s"  
+                        bat "git branch"
+                        bat ""
+                        bat "dir"  
                         } catch (err2) {
                         println "catching error ${err2} "
                         throw err2
