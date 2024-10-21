@@ -28,7 +28,7 @@ if($username -AND $secret ){
 #[boolean]$dryRun = $true#read json
 try {
     if(Test-Path $jsonFilePath){
-        $jsonFileContent = Get-Content -Raw $jsonFilePath
+        $jsonFileContent = Get-Content -Raw .\nasCleanupByRetentionDate.json
         $jsonObj = [System.Collections.ArrayList]::new()
         [System.Collections.ArrayList]$jsonObj = ConvertFrom-Json $jsonFileContent
         Write-Host $jsonObj
