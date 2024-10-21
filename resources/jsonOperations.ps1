@@ -73,7 +73,7 @@ try {
             $shareJson
         ) 
         write-host "parameter info : $shareJson"
-        $shareJson | out-file  -FilePath $jsonFilePath}-ArgumentList $shareJson
+        $shareJson | out-file  -FilePath $jsonFilePath}-ArgumentList ($shareJson,$jsonFilePath)
     #write-host 
     
 }
