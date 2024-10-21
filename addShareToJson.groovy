@@ -59,7 +59,7 @@ pipeline {
                     bat ""
                     bat "git checkout -b newJsonFileBranch"
                     bat "git switch newJsonFileBranch"
-                    bat "git fetch origin Develop"
+                    bat "git fetch origin/Develop"
                     String scriptlocation = "resources\\jsonOperations.ps1"
                     powerShell('pwd')
                     try{
@@ -67,7 +67,7 @@ pipeline {
                         //bat "git add resources\\nasCleanupByRetentionDate_new.json"
                         bat "git add ."
                         bat "git commit -a -m 'test'"
-                        bat "git switch origin Develop"
+                        bat "git switch origin/Develop"
                         bat "git merge newJsonFileBranch" 
                         bat "git branch -D origin newJsonFileBranch"  
                         } catch (err) {
