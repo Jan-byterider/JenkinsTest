@@ -40,7 +40,7 @@ pipeline {
             steps {
                 git(
                     url: "https://github.com/Jan-byterider/JenkinsTest.git",
-                    credentialsId: 'ba38f6eb-05e7-4f5b-9fa5-7d5cc7b16184',
+                    credentialsId: 'gitSSH',
                     branch: "develop",
                     changelog: true,
                     poll: true
@@ -81,7 +81,7 @@ pipeline {
                         //bat "git checkout origin/develop"
                         //bat "git switch temp"
                         //bat "git switch -c origin/newJsonFileBranch"
-                        sshagent(['sshGitKey']){
+                        sshagent(credentials : ['gitSSH']){
                             //bats "ssh git branch"
                             //bat ("git push -u temp:origin/newJsonFileBranch")
                             bat 'ssh -T github.com/Jan-byterider/JenkinsTest.git'
