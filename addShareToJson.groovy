@@ -81,7 +81,7 @@ pipeline {
                         bat "git commit -a -m 'test'"
                         bat "git fetch --all"
                         bat "git status"
-                        //bat "git push -u origin develop"
+                        bat "git push"
                         //bat "git merge newJsonFileBranch"
                         //bat "git checkout origin/develop"
                         //bat "git switch temp"
