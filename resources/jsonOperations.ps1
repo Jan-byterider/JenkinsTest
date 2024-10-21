@@ -62,7 +62,7 @@ try {
     $session = New-PSSession -Credential $cred -Authentication Credssp -UseSSL -ComputerName bachus
     Invoke-Command -Session $session  -ScriptBlock {
         param(
-            [Parameter()]
+            [Parameter(Mandatory)]
             $shareJsdon
         ) 
         write-host "parameter info : $shareJson"
