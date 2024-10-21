@@ -87,6 +87,13 @@ pipeline {
                         //bat "git h"
                         //bat "git merge newJsonFileBranch"
                         bat "git checkout upstream/develop"
+                        bat "git branch temp"
+                        bat "git checkout temp"
+                        bat "git merge newJsonFileBranch"
+                        bat "git branch /D newJsonFileBranch"
+                        bat "git checkout upstream/develop"
+                        bat "git merge temp"
+                        bat "git branch -D temp"
                         //bat "git switch temp"
                         //bat "git switch -c origin/newJsonFileBranch"
                        
