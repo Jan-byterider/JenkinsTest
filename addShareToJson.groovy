@@ -63,10 +63,11 @@ pipeline {
                         println "Branch: Develop doesn't exists yet. "
                     }
                     
-                    bat "git branch"
+                    bat "git fetch origin develop"
+                    bat "git branch -p newJsonFileBranc --track origin/develop"
                     bat "git remote -v"
                     
-                    bat "git fetch origin develop"
+                    
                     //bat "git switch origin/develop"
                     //bat "git checkout origin develop"
 
@@ -80,7 +81,7 @@ pipeline {
                         //bat "git add resources\\nasCleanupByRetentionDate_new.json"
                         bat "git add ."
                         bat "git commit -a -m 'test'"
-                        //bat "git fetch --all"
+                        bat "git fetch upstream"
                         bat "git status"
                         //bat "git h"
                         //bat "git merge newJsonFileBranch"
