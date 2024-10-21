@@ -61,7 +61,7 @@ pipeline {
                          bat "git branch -D develop"
                     } catch (err) {
                         println "Branch: Develop doesn't exists yet. "
-                        bat "git branch -D temp"
+                        //bat "git branch -D temp"
                     }
                     
                     bat "git fetch origin"
@@ -88,7 +88,7 @@ pipeline {
                         //bat "git h"
                         //bat "git merge newJsonFileBranch"
                         bat "git checkout upstream/develop"
-                        bat "git branch -D temp"
+                        //bat "git branch -D temp"
                         bat "git checkout -p temp"
                         bat "git merge newJsonFileBranch"
                         bat "git branch -D newJsonFileBranch"
