@@ -77,8 +77,8 @@ pipeline {
                         bat "git fetch --all"
                         //bat "git push -u origin develop"
                         //bat "git merge newJsonFileBranch"
-                        bat "git checkout origin/develop"
-                        bat "git switch temp"
+                        //bat "git checkout origin/develop"
+                        //bat "git switch temp"
                         //bat "git switch -c origin/newJsonFileBranch"
                         sshagent(['sshGitKey']){
                             //bats "ssh git branch"
