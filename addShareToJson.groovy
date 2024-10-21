@@ -40,6 +40,7 @@ pipeline {
             steps {
                 git(
                     url: "https://github.com/Jan-byterider/JenkinsTest.git",
+                    credentialsId: 'ba38f6eb-05e7-4f5b-9fa5-7d5cc7b16184',
                     branch: "develop",
                     changelog: true,
                     poll: true
@@ -51,6 +52,7 @@ pipeline {
                 script {
                     
                     try{
+                        bat "path=c:\\Program Files\\git\\usr\\bin;%path%"
                         bat "git branch -D newJsonFileBranch"
                     } catch (err) {
                         println "Branch: newJsonFileBranch doesn't exists yet. "
@@ -74,11 +76,18 @@ pipeline {
                         bat "git add ."
                         bat "git commit -a -m 'test'"
                         bat "git fetch --all"
-                        bat "git push -u origin newJsonFileBranch"
+                        //bat "git push -u origin develop"
                         //bat "git merge newJsonFileBranch"
-                        bat "git checkout origin/develop"
+                        //bat "git checkout origin/develop"
+                        //bat "git switch temp"
                         //bat "git switch -c origin/newJsonFileBranch"
-                        bat "git merge newJsonFileBranch"
+                        sshagent(['sshGitKey']){
+                            //bats "ssh git branch"
+                            //bat ("git push -u temp:origin/newJsonFileBranch")
+                            bat 'ssh -T github.com/Jan-byterider/JenkinsTest.git'
+                        }
+                        
+                        bat "git merge origin newJsonFileBranch"
 
                         //bat "git remote add upstream https://github.com/Jan-byterider/JenkinsTest.git"
                         //bat "git fetch upstream" 
@@ -88,7 +97,7 @@ pipeline {
                         } catch (err2) {
                         println "catching error ${err2} "
                         throw err2
-                    }
+                        }
                     /*
                     bat "echo New file > newFile.txt" 
                     bat "git add newFile.txt"
