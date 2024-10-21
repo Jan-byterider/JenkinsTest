@@ -60,7 +60,7 @@ pipeline {
                     
                     bat "git fetch origin"
                     bat "git checkout -b newJsonFileBranch origin/Develop"
-                    bat "git switch newJsonFileBranch"
+                    //bat "git switch newJsonFileBranch"
 
                     String scriptlocation = "resources\\jsonOperations.ps1"
                     powerShell('pwd')
@@ -70,8 +70,12 @@ pipeline {
                         bat "git add ."
                         bat "git commit -a -m 'test'"
                         bat "git fetch --all"
-                        bat "git switch Develop"
+                        bat "git push origin newJsonFileBranch"
+                        //bat "git merge newJsonFileBranch"
+                        bat "git checkout origin/develop"
+                        //bat "git switch -c origin/newJsonFileBranch"
                         bat "git merge newJsonFileBranch"
+
                         //bat "git remote add upstream https://github.com/Jan-byterider/JenkinsTest.git"
                         //bat "git fetch upstream" 
                         //bat "git switch upstream"
