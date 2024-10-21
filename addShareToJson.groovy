@@ -70,7 +70,7 @@ pipeline {
                         bat "git add ."
                         bat "git commit -a -m 'test'"
                         bat "git fetch --all"
-                        //bat "git switch Develop"
+                        bat "git push origin Develop"
                         //bat "git merge newJsonFileBranch"
                         bat "git checkout origin/develop"
                         bat "git switch -c origin/newJsonFileBranch"
