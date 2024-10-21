@@ -53,7 +53,7 @@ pipeline {
                     try{
                         bat "git branch -D newJsonFileBranch"
                     } catch (err) {
-                        println "Branch: ${newJsonFileBranch} doesn't exists yet. "
+                        println "Branch: newJsonFileBranch doesn't exists yet. "
                     }
 
                     bat ""
