@@ -4,38 +4,43 @@ param (
     [string]
     $sharePath,
     [Parameter(Mandatory=$true)]
-    [string]
+    [String]
     $retentionDays,
     [Parameter(Mandatory=$true)]
     [string]
     $jsonFilePath,
-    [Parameter(Mandatory=$true)]
+    [Parameter(Mandatory=$false)]
     [string]
     $username,
-    [Parameter(Mandatory=$true)]
+    [Parameter(Mandatory=$false)]
     $secret
 )
 
 write-host "Powershell script started - SharePath: $sharePath retentionDays: $retentionDays jsonFilePath: $jsonFilePath username: $username secret: $secret"
-$secret = ConvertTo-SecureString -String $secret -AsPlainText -Force
-[pscredential]$cred = New-Object System.Management.Automation.PSCredential ($userName, $secret)
-$jsonFilePath2 = $jsonFilePath.Replace('.json','_new.json')
-$jsonFilePath2
+
+if($username -AND $secret ){
+     $secret = ConvertTo-SecureString -String $secret -AsPlainText -Force
+     $cred = New-Object System.Management.Automation.PSCredential ($userName, $secret)
+}
+#$jsonFilePath2 = $jsonFilePath.Replace('.json','_new.json')
+#$jsonFilePath2
 
 #[boolean]$dryRun = $true#read json
 try {
-    $jsonFileContent = Get-Content -Raw $jsonFilePath
-    $jsonObj = [System.Collections.ArrayList]::new()
-    [System.Collections.ArrayList]$jsonObj = ConvertFrom-Json $jsonFileContent
-    Write-Host $jsonObj
-    $shareJson =  ConvertTo-Json -InputObject $jsonObj
+    if(Test-Path $jsonFilePath){
+        $jsonFileContent = Get-Content -Raw .\nasCleanupByRetentionDate.json
+        $jsonObj = [System.Collections.ArrayList]::new()
+        [System.Collections.ArrayList]$jsonObj = ConvertFrom-Json $jsonFileContent
+        Write-Host $jsonObj
+        $shareJson =  ConvertTo-Json -InputObject $jsonObj
+    }
 } catch {
     Write-Host "Error loading json $jsonFilePath"
 }
 
 try {
     $newJsonObject = New-Object -TypeName PSObject -Property @{
-        Share= $sharePath
+        Share = $sharePath
         Retention = [int32]$retentionDays
     }
 }
@@ -56,7 +61,7 @@ catch {
 try {
     $shareJson =  ConvertTo-Json -InputObject $jsonObj
     write-host "shareJson: $shareJson"
-    $shareJson | out-file  -FilePath $jsonFilePath
+    $shareJson | out-file  -FilePath .\nasCleanupByRetentionDate.json
      
     <#
     $jsonFileContent = Get-Content -Raw $jsonFilePath

@@ -4,7 +4,8 @@ def powerShell(psCmd) {
     bat "powershell.exe -NonInteractive -ExecutionPolicy Bypass -Command \"\$ErrorActionPreference='Stop';[Console]::OutputEncoding=[System.Text.Encoding]::UTF8;$psCmd;EXIT \$global:LastExitCode\""
 }
 
-def jsonFilePath = "resources\\nasCleanupByRetentionDate.json"
+//def jsonFilePath = "resources\\nasCleanupByRetentionDate.json"
+def jsonFilePath = "C:\\git\\JenkinsTest\\resources\\nasCleanupByRetentionDate.json"
 
 pipeline {
     agent any
@@ -40,7 +41,7 @@ pipeline {
             steps {
                 git(
                     url: "https://github.com/Jan-byterider/JenkinsTest.git",
-                    credentialsId: 'ba38f6eb-05e7-4f5b-9fa5-7d5cc7b16184',
+                    credentialsId: 'gitSSH',
                     branch: "develop",
                     changelog: true,
                     poll: true
@@ -71,7 +72,10 @@ pipeline {
                     String scriptlocation = "resources\\jsonOperations.ps1"
                     powerShell('pwd')
                     try{
-                        powerShell("${scriptlocation} ${params.sharePath} ${params.retentionDays} ${jsonFilePath} ${params.username} ${params.password}") 
+                        println "path: ${params.sharePath} - retentiondays: ${params.retentionDays} - jsonFilePath ${jsonFilePath}"
+                        
+                        powerShell("${scriptlocation} ${params.sharePath} ${params.retentionDays} ${jsonFilePath}") // ${params.username} ${params.password})                         
+                        
                         //bat "git add resources\\nasCleanupByRetentionDate_new.json"
                         bat "git add ."
                         bat "git commit -a -m 'test'"
@@ -81,7 +85,8 @@ pipeline {
                         //bat "git checkout origin/develop"
                         //bat "git switch temp"
                         //bat "git switch -c origin/newJsonFileBranch"
-                        sshagent(['sshGitKey']){
+                       
+                        sshagent(credentials : ['gitSSH']){
                             //bats "ssh git branch"
                             //bat ("git push -u temp:origin/newJsonFileBranch")
                             bat 'ssh -T github.com/Jan-byterider/JenkinsTest.git'
