@@ -64,7 +64,8 @@ pipeline {
                     powerShell('pwd')
                     try{
                         powerShell("${scriptlocation} ${params.sharePath} ${params.retentionDays} ${jsonFilePath} ${params.username} ${params.password}") 
-                        bat "git add resources\\nasCleanupByRetentionDate_new.json"
+                        //bat "git add resources\\nasCleanupByRetentionDate_new.json"
+                        bat "git add ."
                         bat "git commit -a -m 'test'"
                         bat "git switch origin/Develop"
                         bat "git merge newJsonFileBranch" 
