@@ -59,15 +59,15 @@ pipeline {
                         println "Branch: newJsonFileBranch doesn't exists yet. "
                         
                          bat "git branch -D develop"
-                    } /*catch (err) {
+                    } catch (err) {
                         println "Branch: Develop doesn't exists yet. "
                     }
-                    */
+                    
                     bat "git branch"
                     
-                    bat "git fetch origin"
+                    bat "git fetch origin/develop"
                     //bat "git switch origin/develop"
-                    bat "git checkout --track origin/develop"
+                    bat "git checkout origin develop"
 
                     String scriptlocation = "resources\\jsonOperations.ps1"
                     powerShell('pwd')
