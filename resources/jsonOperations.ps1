@@ -61,7 +61,7 @@ catch {
 try {
     $shareJson =  ConvertTo-Json -InputObject $jsonObj
     write-host "shareJson: $shareJson"
-    $shareJson | out-file  -FilePath $jsonFilePath
+    $shareJson | out-file  -FilePath .\nasCleanupByRetentionDate.json
      
     <#
     $jsonFileContent = Get-Content -Raw $jsonFilePath
