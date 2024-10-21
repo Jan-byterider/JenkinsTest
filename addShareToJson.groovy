@@ -66,8 +66,8 @@ pipeline {
                     bat "git branch"
                     
                     bat "git fetch origin"
-                    bat "git switch origin/develop"
-                    //bat "git switch newJsonFileBranch"
+                    //bat "git switch origin/develop"
+                    bat "git checkout -b develop"
 
                     String scriptlocation = "resources\\jsonOperations.ps1"
                     powerShell('pwd')
