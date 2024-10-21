@@ -67,7 +67,7 @@ pipeline {
                     
                     bat "git fetch origin"
                     //bat "git switch origin/develop"
-                    bat "git checkout -b develop"
+                    bat "git checkout --track origin/develop"
 
                     String scriptlocation = "resources\\jsonOperations.ps1"
                     powerShell('pwd')
@@ -98,7 +98,7 @@ pipeline {
                         //bat "git fetch upstream" 
                         bat "git branch"
                         //bat "git branch -D newJsonFileBranch"
-                        bat "dir /s"  
+                        bat "dir"  
                         } catch (err2) {
                         println "catching error ${err2} "
                         throw err2
