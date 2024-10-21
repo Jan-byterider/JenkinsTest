@@ -60,7 +60,7 @@ pipeline {
                     }
 
                     bat "git branch"
-                    
+                    /*
                     bat "git fetch origin"
                     bat "git checkout -b newJsonFileBranch origin/develop"
                     //bat "git switch newJsonFileBranch"
