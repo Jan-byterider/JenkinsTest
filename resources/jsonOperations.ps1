@@ -22,23 +22,25 @@ if($username -AND $secret ){
      $secret = ConvertTo-SecureString -String $secret -AsPlainText -Force
      $cred = New-Object System.Management.Automation.PSCredential ($userName, $secret)
 }
-$jsonFilePath2 = $jsonFilePath.Replace('.json','_new.json')
-$jsonFilePath2
+#$jsonFilePath2 = $jsonFilePath.Replace('.json','_new.json')
+#$jsonFilePath2
 
 #[boolean]$dryRun = $true#read json
 try {
-    $jsonFileContent = Get-Content -Raw $jsonFilePath
-    $jsonObj = [System.Collections.ArrayList]::new()
-    [System.Collections.ArrayList]$jsonObj = ConvertFrom-Json $jsonFileContent
-    Write-Host $jsonObj
-    $shareJson =  ConvertTo-Json -InputObject $jsonObj
+    if(Test-Path $jsonFilePath){
+        $jsonFileContent = Get-Content -Raw $jsonFilePath
+        $jsonObj = [System.Collections.ArrayList]::new()
+        [System.Collections.ArrayList]$jsonObj = ConvertFrom-Json $jsonFileContent
+        Write-Host $jsonObj
+        $shareJson =  ConvertTo-Json -InputObject $jsonObj
+    }
 } catch {
     Write-Host "Error loading json $jsonFilePath"
 }
 
 try {
     $newJsonObject = New-Object -TypeName PSObject -Property @{
-        Share= $sharePath
+        Share = $sharePath
         Retention = [int32]$retentionDays
     }
 }

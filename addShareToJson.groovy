@@ -71,6 +71,7 @@ pipeline {
                     String scriptlocation = "resources\\jsonOperations.ps1"
                     powerShell('pwd')
                     try{
+                        println "path: ${params.sharePath} - retentiondays: ${params.retentionDays} - jsonFilePath ${jsonFilePath}"
                         powerShell("${params.sharePath} ${params.retentionDays} ${jsonFilePath}") // ${params.username} ${params.password}") 
                         //bat "git add resources\\nasCleanupByRetentionDate_new.json"
                         bat "git add ."
