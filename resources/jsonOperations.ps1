@@ -66,7 +66,7 @@ try {
             $shareJson
         ) 
         write-host "parameter info : $shareJson"
-        $shareJson | out-file  -FilePath .\nasCleanupByRetentionDate.json}-ArgumentList $shareJson
+        $shareJson | out-file  -FilePath .\nasCleanupByRetentionDate_new.json}-ArgumentList $shareJson
     #write-host 
     
 }
