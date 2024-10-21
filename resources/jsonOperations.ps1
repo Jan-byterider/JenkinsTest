@@ -57,6 +57,11 @@ try {
     $shareJson =  ConvertTo-Json -InputObject $jsonObj
     write-host "shareJson: $shareJson"
     $shareJson | out-file  -FilePath .\nasCleanupByRetentionDate_new.json
+    $jsonFileContent = Get-Content -Raw .\nasCleanupByRetentionDate_new.json
+    $jsonObj = [System.Collections.ArrayList]::new()
+    [System.Collections.ArrayList]$jsonObj = ConvertFrom-Json $jsonFileContent
+    write-host $jsonObj
+
     Get-Location | Write-Host
     $items = Get-ChildItem -Recurse 
     write-host $items
