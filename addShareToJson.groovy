@@ -40,7 +40,7 @@ pipeline {
             steps {
                 git(
                     url: "https://github.com/Jan-byterider/JenkinsTest.git",
-                    credentialsId: '77ec298e-4de3-4d77-bd17-73477c13ca95',
+                    credentialsId: 'ba38f6eb-05e7-4f5b-9fa5-7d5cc7b16184',
                     branch: "develop",
                     changelog: true,
                     poll: true
