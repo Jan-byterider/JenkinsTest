@@ -73,7 +73,7 @@ pipeline {
                         bat "git switch Develop"
                         bat "git merge newJsonFileBranch"
                         bat "git remote add upstream https://github.com/Jan-byterider/JenkinsTest.git"
-                        bat "git fetch upstream" 
+                        //bat "git fetch upstream" 
                         bat "git switch upstream"
                         bat "git branch -D newJsonFileBranch"
                         bat "dir /s"  
