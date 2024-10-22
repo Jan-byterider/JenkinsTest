@@ -68,6 +68,7 @@ pipeline {
                     bat "git fetch upstream"
                     bat "git checkout -b newJsonFileBranch --track origin/develop"
                     bat "git remote -v"
+                    bat "git branch"
                     
                     
                     //bat "git switch origin/develop"
@@ -94,7 +95,7 @@ pipeline {
                              println "Branch: temp already exists"
                         }
                         bat "git checkout -p temp"
-                        bat "git merge origin newJsonFileBranch"
+                        bat "git merge newJsonFileBranch"
                         bat "git branch -D newJsonFileBranch"
                         bat "git checkout upstream/develop"
                         bat "git merge temp"
