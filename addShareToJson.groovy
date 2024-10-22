@@ -90,7 +90,7 @@ pipeline {
                         bat "git checkout upstream/develop"
                         try{
                             bat "git switch -c temp"
-                        } catch {
+                        } catch (exception e){
                              println "Branch: temp already exists"
                         }
                         bat "git checkout -p temp"
