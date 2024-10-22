@@ -28,7 +28,7 @@ if($username -AND $secret ){
 #[boolean]$dryRun = $true#read json
 try {
     if(Test-Path $jsonFilePath){
-        $jsonFileContent = Get-Content -Raw .\nasCleanupByRetentionDate.json
+        $jsonFileContent = Get-Content -Raw $jsonFilePath
         $jsonObj = [System.Collections.ArrayList]::new()
         [System.Collections.ArrayList]$jsonObj = ConvertFrom-Json $jsonFileContent
         Write-Host $jsonObj
@@ -61,7 +61,7 @@ catch {
 try {
     $shareJson =  ConvertTo-Json -InputObject $jsonObj
     write-host "shareJson: $shareJson"
-    $shareJson | out-file  -FilePath .\nasCleanupByRetentionDate.json
+    $shareJson | out-file  -FilePath $jsonFilePath
      
     <#
     $jsonFileContent = Get-Content -Raw $jsonFilePath
