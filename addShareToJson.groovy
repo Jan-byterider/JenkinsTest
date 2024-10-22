@@ -92,6 +92,7 @@ pipeline {
                         bat "git commit -a -m 'test'"
                         //bat "git fetch upstream"
                         bat "git status"
+                        bat "git push -u origin HEAD"
                         //bat "git h"
                         //bat "git merge originnewJsonFileBranch"
                         
