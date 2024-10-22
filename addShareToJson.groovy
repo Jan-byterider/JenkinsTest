@@ -154,7 +154,13 @@ pipeline {
         }
         
     }
-    gitPush(gitScm: scm, targetBranch: env.BRANCH_NAME, targetRepo: 'origin')
+   
 }
+post { 
+        always { 
+             gitPush(gitScm: scm, targetBranch: env.BRANCH_NAME, targetRepo: 'origin')
+        }
+}
+
     
     
