@@ -114,7 +114,7 @@ pipeline {
                         //bat "git checkout upstream/develop"
                         bat "git branch -D temp"
                         //bat "git merge upstream/develop develop"
-                        bat "git push upstream develop:develop"
+                        //bat "git push upstream develop:develop"
                         //bat "git branch -D tmp"
                         //bat "git checkout upstream/develop"
                         //bat "git merge tmp"
@@ -154,6 +154,7 @@ pipeline {
         }
         
     }
+    gitPush(gitScm: scm, targetBranch: env.BRANCH_NAME, targetRepo: 'origin')
 }
     
     
