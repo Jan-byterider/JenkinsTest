@@ -40,7 +40,7 @@ pipeline {
         stage("Clone Git Repository") {
             steps {
                 git(
-                    url: "ssh:git@github.com:Jan-byterider/JenkinsTest.git",
+                    url: "git@github.com:Jan-byterider/JenkinsTest.git",
                     credentialsId: 'GitKEygen',
                     branch: "develop",
                     changelog: true,
