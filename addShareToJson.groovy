@@ -96,7 +96,7 @@ pipeline {
                         //bat "git merge originnewJsonFileBranch"
                         
                         //bat "git merge newJsonFileBranch"
-                        bat "git branch -D newJsonFileBranch"
+                        //bat "git branch -D newJsonFileBranch"
                         bat "git checkout upstream/develop"
                         bat "git merge temp"
                         bat "git branch -D temp"
