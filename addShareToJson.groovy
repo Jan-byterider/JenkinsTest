@@ -61,7 +61,12 @@ pipeline {
                          bat "git branch -D develop"
                     } catch (err) {
                         println "Branch: Develop doesn't exists yet. "
-                        //bat "git branch -D temp"
+                        try{
+                            bat "git branch -D temp"}
+                            catch (err) {
+                                println "Branch: temp doesn't exists yet. "
+                            } 
+
                     }
                     
                     bat "git fetch origin"
@@ -92,14 +97,14 @@ pipeline {
                         bat "git commit -a -m 'test'"
                         //bat "git fetch upstream"
                         bat "git status"
-                        bat "git push -u origin HEAD"
+
                         //bat "git h"
                         //bat "git merge originnewJsonFileBranch"
                         
                         //bat "git merge newJsonFileBranch"
                         //bat "git branch -D newJsonFileBranch"
-                        bat "git checkout upstream/develop"
-                        bat "git merge temp"
+                        // bat "git checkout upstream/develop"
+                        bat "git merge upstream/develop temp"
                         bat "git branch -D temp"
                         //bat "git switch temp"
                         //bat "git switch -c origin/newJsonFileBranch"
