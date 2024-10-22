@@ -54,18 +54,27 @@ pipeline {
                     
                     try{
                         bat "path=c:\\Program Files\\git\\usr\\bin;%path%"
-                        bat "git branch -D newJsonFileBranch"
+                        bat "git branch -D newJsonFileBranc"
                     } catch (err) {
                         println "Branch: newJsonFileBranch doesn't exists yet. "
                                 bat "git branch -D origin/newJsonFileBranch"
                          bat "git branch -D develop"
                     } catch (err) {
                         println "Branch: Develop doesn't exists yet. "
+                        //bat "git branch -D temp"
                     }
                     
-                    bat "git fetch origin develop"
-                    bat "git checkout -b newJsonFileBranch --track origin/develop"
+                    bat "git fetch origin"
+                    bat "git fetch upstream"
+                    //bat "git checkout -b newJsonFileBranch --track origin/develop"
                     bat "git remote -v"
+                    bat "git branch"
+                    bat "git checkout upstream/develop"
+                    try{
+                            bat "git switch -c temp"
+                        } catch (err3){
+                             println "Branch: temp already exists"
+                        }
                     
                     
                     //bat "git switch origin/develop"
@@ -84,8 +93,13 @@ pipeline {
                         //bat "git fetch upstream"
                         bat "git status"
                         //bat "git h"
+                        //bat "git merge originnewJsonFileBranch"
+                        
                         //bat "git merge newJsonFileBranch"
-                        //bat "git checkout origin/develop"
+                        //bat "git branch -D newJsonFileBranch"
+                        bat "git checkout upstream/develop"
+                        bat "git merge temp"
+                        bat "git branch -D temp"
                         //bat "git switch temp"
                         //bat "git switch -c origin/newJsonFileBranch"
                        
@@ -95,7 +109,7 @@ pipeline {
                             bat 'ssh -T github.com/Jan-byterider/JenkinsTest.git'
                         } */
                         
-                        bat "git merge origin/develop newJsonFileBranch"
+                        //bat "git merge newJsonFileBranch"
 
                         //bat "git remote add upstream https://github.com/Jan-byterider/JenkinsTest.git"
                         //bat "git fetch upstream" 
