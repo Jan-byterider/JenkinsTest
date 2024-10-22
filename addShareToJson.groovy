@@ -113,10 +113,11 @@ pipeline {
                         bat "git checkout upstream/develop"
                         bat "git branch -D temp"
                         bat "git merge upstream/develop develop"
-                        bat "git branch tmp"
+                         bat "git push remote develop"
+                        bat "git branch -D tmp"
                         bat "git checkout upstream/develop"
                         bat "git merge tmp"
-                        bat "git push remote develop"
+                       
 
                         //bat "git switch temp"
                         //bat "git switch -c origin/newJsonFileBranch"
