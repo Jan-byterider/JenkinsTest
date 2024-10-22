@@ -110,13 +110,14 @@ pipeline {
                         bat "git switch develop"
                         bat "git fetch upstream"
                         bat "git merge develop temp"
-                        bat "git checkout upstream/develop"
+
+                        //bat "git checkout upstream/develop"
                         bat "git branch -D temp"
-                        bat "git merge upstream/develop develop"
-                         bat "git push upstream/develop"
-                        bat "git branch -D tmp"
-                        bat "git checkout upstream/develop"
-                        bat "git merge tmp"
+                        //bat "git merge upstream/develop develop"
+                        bat "git push upstream develop:develop"
+                        //bat "git branch -D tmp"
+                        //bat "git checkout upstream/develop"
+                        //bat "git merge tmp"
                        
 
                         //bat "git switch temp"
