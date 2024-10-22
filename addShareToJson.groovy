@@ -111,8 +111,12 @@ pipeline {
                         bat "git fetch upstream"
                         bat "git merge develop temp"
                         bat "git checkout upstream/develop"
-                        bat "git merge upstream/develop develop"
                         bat "git branch -D temp"
+                        bat "git merge upstream/develop develop"
+                        bat "git branch tmp"
+                        bat "git checkout upstream/develop"
+                        bat "git merge tmp"
+
                         //bat "git switch temp"
                         //bat "git switch -c origin/newJsonFileBranch"
                        
