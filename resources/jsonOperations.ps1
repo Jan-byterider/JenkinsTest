@@ -30,12 +30,15 @@ try {
     if(Test-Path $jsonFilePath){
         $jsonFileContent = Get-Content -Raw $jsonFilePath
         $jsonObj = [System.Collections.ArrayList]::new()
+        
         [System.Collections.ArrayList]$jsonObj = ConvertFrom-Json $jsonFileContent
+        
         Write-Host $jsonObj
         $shareJson =  ConvertTo-Json -InputObject $jsonObj
     }
 } catch {
     Write-Host "Error loading json $jsonFilePath"
+    Write-host -f red "Encountered Error:"$_.Exception.Message
 }
 
 try {
@@ -46,6 +49,7 @@ try {
 }
 catch {
     Write-Host "Error creating PS object conaining share data"
+    Write-host -f red "Encountered Error:"$_.Exception.Message
 }
 
 $newJsonObject
@@ -55,37 +59,15 @@ try {
 }
 catch {
     Write-Host "Error adding share to JSON object array list"
+    Write-host -f red "Encountered Error:"$_.Exception.Message
     throw $Error
 }
 
 try {
     $shareJson =  ConvertTo-Json -InputObject $jsonObj
     write-host "shareJson: $shareJson"
+    Write-host -f red "Encountered Error:"$_.Exception.Message
     $shareJson | out-file  -FilePath $jsonFilePath
-     
-    <#
-    $jsonFileContent = Get-Content -Raw $jsonFilePath
-    $jsonObj = [System.Collections.ArrayList]::new()
-    [System.Collections.ArrayList]$jsonObj = ConvertFrom-Json $jsonFileContent
-    write-host $jsonObj
-
-    Get-Location | Write-Host
-    $items = Get-ChildItem -Recurse 
-    write-host $items
-    
-    $session = New-PSSession -Credential $cred -Authentication Credssp -UseSSL -ComputerName bachus
-   
-    Invoke-Command -Session $session  -ScriptBlock {
-        param(
-            [Parameter(Mandatory)]
-            $shareJson,
-            [Parameter(Mandatory)]
-            $jsonFilePath
-        ) 
-        write-host "parameter info : $shareJson"
-        $shareJson | out-file  -FilePath $jsonFilePath}-ArgumentList ($shareJson,$jsonFilePath)
-    #write-host #>
-    
 }
 catch {
     Write-Host "Error writing json $jsonFilePath"
