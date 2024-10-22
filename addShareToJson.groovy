@@ -40,7 +40,7 @@ pipeline {
         stage("Clone Git Repository") {
             steps {
                 git(
-                    url: "git@github.com:Jan-byterider/JenkinsTest.git",
+                    url: "ssh:git@github.com:Jan-byterider/JenkinsTest.git",
                     credentialsId: 'GitKEygen',
                     branch: "develop",
                     changelog: true,
@@ -53,20 +53,25 @@ pipeline {
                 script {
                     
                     try{
-                        bat "path=c:\\Program Files\\git\\usr\\bin;%path%"
-                        bat "git branch -D newJsonFileBranc"
-                    } catch (err) {
-                        println "Branch: newJsonFileBranch doesn't exists yet. "
-                                bat "git branch -D origin/newJsonFileBranch"
-                         bat "git branch -D develop"
-                    } catch (err3) {
-                        println "Branch: Develop doesn't exists yet. "
+                        bat "ssh -vT git@github.com"
+                    } catch (fout){
                         try{
-                            bat "git branch -D temp"}
-                            catch (err4) {
+                            bat "path=c:\\Program Files\\git\\usr\\bin;%path%"
+                            bat "git branch -D newJsonFileBranc"
+                        }   
+                        catch (err) {
+                            println "Branch: newJsonFileBranch doesn't exists yet. "
+                            bat "git branch -D origin/newJsonFileBranch"
+                            bat "git branch -D develop"
+                        } catch (err3) {
+                            println "Branch: Develop doesn't exists yet. "
+                            try{
+                                bat "git branch -D temp"}
+                                catch (err4) {
                                 println "Branch: temp doesn't exists yet. "
                             } 
 
+                        }
                     }
                     
                     bat "git fetch origin"
