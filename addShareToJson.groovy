@@ -40,8 +40,8 @@ pipeline {
         stage("Clone Git Repository") {
             steps {
                 git(
-                    url: "https://github.com/Jan-byterider/JenkinsTest.git",
-                    credentialsId: 'newGit2',
+                    url: "git@github.com:Jan-byterider/JenkinsTest.git",
+                    credentialsId: 'jenkins_Bachus',
                     branch: "develop",
                     changelog: true,
                     poll: true
