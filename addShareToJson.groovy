@@ -53,6 +53,7 @@ pipeline {
                 script {
                     
                     try{
+                        bat "ssh-add C:\\Users\\jenkins\\.ssh\\id_rsa3"
                         bat "ssh -vT git@github.com"
                     } catch (fout){
                         try{
