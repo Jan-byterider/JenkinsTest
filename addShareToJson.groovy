@@ -59,11 +59,11 @@ pipeline {
                         println "Branch: newJsonFileBranch doesn't exists yet. "
                                 bat "git branch -D origin/newJsonFileBranch"
                          bat "git branch -D develop"
-                    } catch (err) {
+                    } catch (err3) {
                         println "Branch: Develop doesn't exists yet. "
                         try{
                             bat "git branch -D temp"}
-                            catch (err) {
+                            catch (err4) {
                                 println "Branch: temp doesn't exists yet. "
                             } 
 
@@ -77,7 +77,7 @@ pipeline {
                     bat "git checkout upstream/develop"
                     try{
                             bat "git switch -c temp"
-                        } catch (err3){
+                        } catch (err5){
                              println "Branch: temp already exists"
                         }
                     
