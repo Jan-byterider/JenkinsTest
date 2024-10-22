@@ -90,7 +90,7 @@ pipeline {
                         bat "git checkout upstream/develop"
                         bat "git switch -c temp"
                         bat "git checkout -p temp"
-                        bat "git merge origi newJsonFileBranch"
+                        bat "git merge origin newJsonFileBranch"
                         bat "git branch -D newJsonFileBranch"
                         bat "git checkout upstream/develop"
                         bat "git merge temp"
