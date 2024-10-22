@@ -88,7 +88,7 @@ try {
     
 }
 catch {
-    Write-Host "Error writing json ..\nasCleanupByRetentionDate.json"
+    Write-Host "Error writing json $jsonFilePath"
     Write-host -f red "Encountered Error:"$_.Exception.Message
     throw $_
     $_
