@@ -59,11 +59,11 @@ pipeline {
                         println "Branch: newJsonFileBranch doesn't exists yet. "
                                 bat "git branch -D origin/newJsonFileBranch"
                          bat "git branch -D develop"
-                    } catch (err) {
+                    } catch (err3) {
                         println "Branch: Develop doesn't exists yet. "
                         try{
                             bat "git branch -D temp"}
-                            catch (err) {
+                            catch (err4) {
                                 println "Branch: temp doesn't exists yet. "
                             } 
 
@@ -77,7 +77,7 @@ pipeline {
                     bat "git checkout upstream/develop"
                     try{
                             bat "git switch -c temp"
-                        } catch (err3){
+                        } catch (err5){
                              println "Branch: temp already exists"
                         }
                     
@@ -97,18 +97,21 @@ pipeline {
                         bat "git commit -a -m 'test'"
                         //bat "git fetch upstream"
                         bat "git status"
-<<<<<<< HEAD
                         //bat "git push -u origin HEAD"
-=======
 
->>>>>>> 5a31cf2f84784011862c0b4eef206c0f58e344ff
+
+
                         //bat "git h"
                         //bat "git merge originnewJsonFileBranch"
                         
                         //bat "git merge newJsonFileBranch"
                         //bat "git branch -D newJsonFileBranch"
                         // bat "git checkout upstream/develop"
-                        bat "git merge upstream/develop temp"
+                        bat "git switch develop"
+                        bat "git fetch upstream"
+                        bat "git merge develop temp"
+                        bat "git checkout upstream/develop"
+                        bat "git merge upstream/develop develop"
                         bat "git branch -D temp"
                         //bat "git switch temp"
                         //bat "git switch -c origin/newJsonFileBranch"
