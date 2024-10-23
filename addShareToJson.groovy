@@ -120,7 +120,7 @@ pipeline {
                     bat "git branch -D origin/newBranch"
                     bat "git branch -D newJsonFileBranch"
                     */
-                }
+                
                 /* git(
                     url: "git@github.com:Jan-byterider/JenkinsTest.git",
                     credentialsId: 'GitKEygen',
