@@ -48,11 +48,9 @@ pipeline {
                     bat "git remote -v"
                     bat "git branch"
                     bat "git checkout upstream/develop"
-                      try{
-                            bat "git switch -c temp"
-                        } catch (err5){
-                             println "Branch: temp already exists"
-                        }
+                    bat "git switch -c temp"
+                } 
+                      
                     
                     
                     //bat "git switch origin/develop"
@@ -123,7 +121,7 @@ pipeline {
                     bat "git branch -D newJsonFileBranch"
                     */
                 }
-                git(
+                /* git(
                     url: "git@github.com:Jan-byterider/JenkinsTest.git",
                     credentialsId: 'GitKEygen',
                     branch: "develop",
@@ -132,7 +130,7 @@ pipeline {
                     //upstream: true
                     //push: true
                     
-                )
+                )*/
                 
                 script {
                     
