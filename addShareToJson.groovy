@@ -41,6 +41,13 @@ pipeline {
             steps {
                 sshagent(credentials: ['GitKEygen']){
                     //bat  'ssh-add C:\\Users\\jenkins\\.ssh\\id_rsa3'
+                    bat "ssh -vT git@github.com"
+                    bat "git fetch origin"
+                    bat "git fetch upstream"
+                    //bat "git checkout -b newJsonFileBranch --track origin/develop"
+                    bat "git remote -v"
+                    bat "git branch"
+                    bat "git checkout upstream/develop"
                 }
                 git(
                     url: "git@github.com:Jan-byterider/JenkinsTest.git",
@@ -57,7 +64,7 @@ pipeline {
                     
                     try{
                         //bat "ssh-add C:\\Users\\jenkins\\.ssh\\id_rsa3"
-                        bat "ssh -vT git@github.com"
+                        
                     } catch (fout){
                         try{
                             bat "path=c:\\Program Files\\git\\usr\\bin;%path%"
@@ -78,12 +85,7 @@ pipeline {
                         }
                     }
                     
-                    bat "git fetch origin"
-                    bat "git fetch upstream"
-                    //bat "git checkout -b newJsonFileBranch --track origin/develop"
-                    bat "git remote -v"
-                    bat "git branch"
-                    bat "git checkout upstream/develop"
+                   
                     try{
                             bat "git switch -c temp"
                         } catch (err5){
