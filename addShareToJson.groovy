@@ -39,6 +39,9 @@ pipeline {
         }
         stage("Clone Git Repository") {
             steps {
+                sshagent(credentials: ['GitKEygen']){
+                    bat  'ssh-add C:\\Users\\jenkins\\.ssh\\id_rsa3'
+                }
                 git(
                     url: "git@github.com:Jan-byterider/JenkinsTest.git",
                     credentialsId: 'GitKEygen',
