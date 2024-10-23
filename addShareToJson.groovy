@@ -41,7 +41,7 @@ pipeline {
             steps {
                 sshagent(credentials: ['GitKEygen']){
                     //bat  'ssh-add C:\\Users\\jenkins\\.ssh\\id_rsa3'
-                    bat "ssh -vT git@github.com"
+                    //bat "ssh -vT git@github.com"
                     bat "git fetch origin"
                     bat "git fetch upstream"
                     //bat "git checkout -b newJsonFileBranch --track origin/develop"
